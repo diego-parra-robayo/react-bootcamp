@@ -1,6 +1,7 @@
 import FeaturedBanners from "./FeaturedBanners";
 import Categories from "./Categories";
 import Spacer from "../../utils/components/Spacer";
+import ProductList from "./ProductList";
 
 function HomePage() {
   return (
@@ -8,6 +9,8 @@ function HomePage() {
       <FeaturedBanners />
       <Spacer height="4rem" />
       <Categories />
+      <Spacer height="4rem" />
+      <ProductList />
       <Spacer height="4rem" />
     </main>
   );
