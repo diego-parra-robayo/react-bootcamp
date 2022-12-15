@@ -1,15 +1,11 @@
 import CategoriesSidePanel from "./CategoriesSidePanel";
-import styled from "styled-components";
 import mockedCategories from "../../mocks/en-us/product-categories.json";
 import mockedProducts from "../../mocks/en-us/featured-products.json";
 import useFilters from "../../utils/hooks/useFilters";
 import ProductList from "../../utils/components/ProductList";
 import { useMemo } from "react";
-
-const ProductsListPageContainer = styled.main`
-  padding: 1rem 0;
-  overflow: auto;
-`;
+import PaginationControls from "./PaginationControls";
+import Spacer from "../../utils/components/Spacer";
 
 function ProductListPage() {
   const {
@@ -23,24 +19,30 @@ function ProductListPage() {
       name: categoryModel.data.name,
     }))
   );
-  const selectedCategoryIds = useMemo(
-    () => selectedCategories.map((category) => category.id),
-    [selectedCategories]
+  const filteredProducts = useMemo(
+    () =>
+      filterProductsByCategory(
+        mockedProducts.results,
+        selectedCategories.map((category) => category.id)
+      ),
+    [mockedProducts.results, selectedCategories]
   );
 
   return (
-    <ProductsListPageContainer>
+    <main>
       <CategoriesSidePanel
         categories={categories}
         onCategorySelected={(category) => toggleCategory(category.id)}
       />
-      <ProductList
-        products={filterProductsByCategory(
-          mockedProducts.results,
-          selectedCategoryIds
-        )}
-      />
-    </ProductsListPageContainer>
+      <section>
+        <ProductList products={filteredProducts} />
+        <Spacer height={"2rem"} />
+        <PaginationControls
+          pageFrom={filteredProducts.length === 0 ? 0 : 1}
+          pageTo={5}
+        />
+      </section>
+    </main>
   );
 }
 

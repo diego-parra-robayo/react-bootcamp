@@ -8,7 +8,6 @@ import HomePage from "../home/HomePage";
 const StyledHeader = styled.header`
   height: 3rem;
   padding: 0.5rem 0;
-  margin-bottom: 1rem;
   border-bottom: thin solid gray;
   display: flex;
   align-items: center;

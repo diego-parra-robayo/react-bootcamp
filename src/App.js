@@ -9,7 +9,33 @@ import styled from "styled-components";
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  header {
+    margin-bottom: 1rem;
+  }
+
+  main {
+    display: flex;
+  }
+
+  section {
+    padding: 1rem 0;
+    flex-basis: auto;
+    flex-grow: 8;
+  }
+
+  aside {
+    min-width: 20vw;
+    max-width: 20vw;
+    margin-right: 2rem;
+    flex-basis: 20vw;
+    flex-grow: 2;
+  }
+
+  footer {
+    margin-top: 1rem;
+    clear: both;
+  }
 `;
 
 function App() {

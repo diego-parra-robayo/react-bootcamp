@@ -2,14 +2,8 @@ import styled from "styled-components";
 import { ChipGroup } from "../../utils/components/Chip";
 
 const SidePanel = styled.aside`
-  width: 20vw;
   border-right: thin gray solid;
-  margin-right: 2rem;
   padding-right: 2rem;
-  float: left;
-  position: sticky;
-  top: 0;
-  height: 100%;
 `;
 
 /**

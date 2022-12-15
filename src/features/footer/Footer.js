@@ -4,8 +4,6 @@ import { primaryColor } from "../../utils/theme/colors";
 const StyledFooter = styled.footer`
   background: ${primaryColor};
   padding: 0.5rem;
-  margin-top: 1rem;
-  clear: both;
 
   p {
     color: white;
