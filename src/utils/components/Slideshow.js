@@ -46,6 +46,12 @@ const StyledArrowButton = styled(MaterialIconButton)`
   color: white;
 `;
 
+/**
+ *
+ * @param {data: [{id: string, src: string, alt: string}], interval: number}
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
 function Slideshow({ data = [], interval = 4000 }) {
   const {
     data: banner,

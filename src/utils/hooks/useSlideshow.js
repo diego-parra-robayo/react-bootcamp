@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
+/**
+ *
+ * @param {dataList: *[], intervalMs: number, isInfinite: boolean}
+ * @returns {{pos: number, data: *, isFirst: boolean, isLast: boolean, setNext: (function(): void), setPrevious: (function(): void)}}
+ */
 export function useSlideshow({
   dataList = [],
   intervalMs = 4000,
