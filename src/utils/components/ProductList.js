@@ -1,7 +1,6 @@
-import mockedProducts from "../../mocks/en-us/featured-products.json";
 import ProductListItem from "./ProductListItem";
 import styled from "styled-components";
-import Spacer from "../../utils/components/Spacer";
+import Spacer from "./Spacer";
 
 const ProductListContainer = styled.div`
   display: flex;
@@ -10,11 +9,18 @@ const ProductListContainer = styled.div`
   gap: 2rem 1rem;
 `;
 
-function ProductList({ products = mockedProducts.results }) {
+/**
+ *
+ * @param {products: *[productModel]}
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function ProductList({ title = "", products = [] }) {
+  if (!products || products.length === 0) return <p>No products to show</p>;
   return (
     <section>
-      <h2>Products for you</h2>
-      <Spacer height={"1rem"} />
+      {title ? <h2>{title}</h2> : null}
+      {title ? <Spacer height={"1rem"} /> : null}
       <ProductListContainer>
         {products.map((product) => (
           <ProductListItem

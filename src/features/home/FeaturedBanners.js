@@ -1,8 +1,13 @@
-import mockedBanners from "../../mocks/en-us/featured-banners.json";
 import { useMemo } from "react";
 import Slideshow from "../../utils/components/Slideshow";
 
-function FeaturedBanners({ banners = mockedBanners.results }) {
+/**
+ *
+ * @param {banners: *[bannerModel]}
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function FeaturedBanners({ banners }) {
   const mappedData = useMemo(
     () =>
       !banners

@@ -1,7 +1,12 @@
-import mockedCategories from "../../mocks/en-us/product-categories.json";
 import { ChipGroup } from "../../utils/components/Chip";
 
-function Categories({ categories = mockedCategories.results }) {
+/**
+ *
+ * @param {categories: *[categoryModel]}
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function Categories({ categories }) {
   return (
     <section>
       <ChipGroup

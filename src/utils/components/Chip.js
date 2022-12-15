@@ -37,7 +37,7 @@ export function ChipGroup({ data = [], onItemSelected }) {
           <Chip
             key={itemData.id}
             selected={itemData.selected ?? false}
-            onClick={() => onItemSelected(itemData)}
+            onClick={() => (onItemSelected ? onItemSelected(itemData) : null)}
           >
             {itemData.name}
           </Chip>
