@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Logo from "./Logo";
-import SearchBar from "./SearchBar";
+import SearchBar from "../../utils/components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 
 const StyledHeader = styled.header`

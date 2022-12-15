@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-export function useBanner({
+export function useSlideshow({
   dataList = [],
   intervalMs = 4000,
   isInfinite = true,
