@@ -28,3 +28,4 @@ yarn-error.log*
 /.idea/ondemand-react-bootcamp.iml
 /.idea/vcs.xml
 /.idea/prettier.xml
+/.idea/codeStyles/codeStyleConfig.xml
