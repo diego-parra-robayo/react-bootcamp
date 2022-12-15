@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import SearchBar from "../../utils/components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
+import { Link } from "react-router-dom";
+import HomePage from "../home/HomePage";
 
 const StyledHeader = styled.header`
   height: 8vmin;
@@ -13,10 +15,16 @@ const StyledHeader = styled.header`
   justify-content: space-between;
 `;
 
+const StyledLinkContainer = styled(Link)`
+  height: 100%;
+`;
+
 function Header() {
   return (
     <StyledHeader>
-      <Logo />
+      <StyledLinkContainer to={HomePage.prototype.route}>
+        <Logo />
+      </StyledLinkContainer>
       <SearchBar />
       <ShoppingCartIcon />
     </StyledHeader>
