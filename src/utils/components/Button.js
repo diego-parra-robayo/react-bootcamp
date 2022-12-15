@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { primaryColor } from "../theme/colors";
 
 const Button = styled.button``;
 
@@ -12,5 +13,5 @@ export const OutlinedButton = styled(Button)`
 export const FilledButton = styled(Button)`
   border-radius: 100px;
   padding: 0.5rem 1rem;
-  background: #031a71;
+  background: ${primaryColor};
 `;

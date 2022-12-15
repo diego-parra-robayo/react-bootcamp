@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { primaryColor } from "../../utils/theme/colors";
 
 const StyledFooter = styled.footer`
-  background: #031a71;
+  background: ${primaryColor};
   padding: 8px;
   margin-top: 8px;
 

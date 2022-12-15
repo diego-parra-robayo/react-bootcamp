@@ -1,30 +1,31 @@
 import styled from "styled-components";
+import { onPrimaryColor, primaryColor } from "../theme/colors";
 
 const Chip = styled.div`
-  display: inline-block;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  background: #ececec;
+  background: ${(props) => (props.selected ? primaryColor : "#ececec")};
+  color: ${(props) => (props.selected ? onPrimaryColor : "#000000")};
   border-radius: 100px;
   font-weight: bold;
-  margin: 0.5rem;
   user-select: none;
+  font-size: 0.9rem;
 
   &:hover {
-    background: #dcdbdb;
+    opacity: 0.8;
   }
 
   &:active {
-    background: #cccccc;
+    background: ${(props) => (!props.selected ? primaryColor : "#ececec")};
+    color: ${(props) => (!props.selected ? onPrimaryColor : "#000000")};
   }
 `;
 
 const ChipGroupContainer = styled.div`
-  @media (min-width: 500px) {
-    height: 4rem;
-    white-space: nowrap;
-    overflow-y: scroll;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: {(props)= > props.direction || "row"};
+  gap: 0.9rem;
 `;
 
 export function ChipGroup({ data = [] }) {
