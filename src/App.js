@@ -7,7 +7,6 @@ import ProductListPage from "./features/product-list/ProductListPage";
 import styled from "styled-components";
 
 const AppContainer = styled.div`
-  height: 98vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

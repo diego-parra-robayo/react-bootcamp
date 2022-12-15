@@ -6,6 +6,10 @@ const SidePanel = styled.aside`
   border-right: thin gray solid;
   margin-right: 2rem;
   padding-right: 2rem;
+  float: left;
+  position: sticky;
+  top: 0;
+  height: 100%;
 `;
 
 /**

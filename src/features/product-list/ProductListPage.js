@@ -7,9 +7,8 @@ import ProductList from "../../utils/components/ProductList";
 import { useMemo } from "react";
 
 const ProductsListPageContainer = styled.main`
-  display: flex;
-  height: 100%;
   padding: 1rem 0;
+  overflow: auto;
 `;
 
 function ProductListPage() {
