@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Categories from "../products/Categories";
+import Categories from "../categories/Categories";
 
 const SidePanel = styled.aside`
   border-right: thin gray solid;

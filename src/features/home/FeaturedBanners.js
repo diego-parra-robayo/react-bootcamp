@@ -20,11 +20,7 @@ function FeaturedBanners({ banners }) {
     [banners]
   );
 
-  return (
-    <section>
-      <Slideshow data={mappedData} interval={4000} />
-    </section>
-  );
+  return <Slideshow data={mappedData} interval={4000} />;
 }
 
 export default FeaturedBanners;

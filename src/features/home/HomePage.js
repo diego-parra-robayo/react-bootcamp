@@ -1,23 +1,33 @@
 import FeaturedBanners from "./FeaturedBanners";
-import Categories from "../products/Categories";
+import Categories from "../categories/Categories";
 import Spacer from "../../components/Spacer";
 import ProductList from "../products/ProductList";
 import ViewAllProductsButton from "./ViewAllProductsButton";
-import mockedProducts from "../../mocks/en-us/featured-products.json";
-import mockedCategories from "../../mocks/en-us/product-categories.json";
-import mockedBanners from "../../mocks/en-us/featured-banners.json";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBanners } from "./bannersSlice";
+import { selectProducts } from "../products/productsSlice";
+import { useEffect } from "react";
+import { selectCategories } from "../categories/categoriesSlice";
+import { loadFeaturedProducts } from "../products/productsThunks";
 
 function HomePage() {
+  const banners = useSelector(selectBanners);
+  const categories = useSelector(selectCategories);
+  const products = useSelector(selectProducts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadFeaturedProducts());
+  }, []);
+
   return (
     <section>
-      <FeaturedBanners banners={mockedBanners.results} />
+      <FeaturedBanners banners={banners} />
       <Spacer height="4rem" />
-      <Categories categories={mockedCategories.results} />
+      <Categories categories={categories} />
       <Spacer height="4rem" />
-      <ProductList title="Products for you" products={mockedProducts.results} />
+      <ProductList title="Products for you" products={products} />
       <Spacer height="4rem" />
       <ViewAllProductsButton />
-      <Spacer height="4rem" />
     </section>
   );
 }
