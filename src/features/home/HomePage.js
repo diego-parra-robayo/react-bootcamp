@@ -9,7 +9,7 @@ import mockedBanners from "../../mocks/en-us/featured-banners.json";
 
 function HomePage() {
   return (
-    <main>
+    <section>
       <FeaturedBanners banners={mockedBanners.results} />
       <Spacer height="4rem" />
       <Categories categories={mockedCategories.results} />
@@ -18,7 +18,7 @@ function HomePage() {
       <Spacer height="4rem" />
       <ViewAllProductsButton />
       <Spacer height="4rem" />
-    </main>
+    </section>
   );
 }
 
