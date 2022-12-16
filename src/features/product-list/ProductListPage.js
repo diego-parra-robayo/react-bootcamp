@@ -2,10 +2,10 @@ import CategoriesSidePanel from "./CategoriesSidePanel";
 import mockedCategories from "../../mocks/en-us/product-categories.json";
 import mockedProducts from "../../mocks/en-us/featured-products.json";
 import useFilters from "../../utils/hooks/useFilters";
-import ProductList from "../../utils/components/ProductList";
+import ProductList from "../products/ProductList";
 import { useMemo } from "react";
 import PaginationControls from "./PaginationControls";
-import Spacer from "../../utils/components/Spacer";
+import Spacer from "../../components/Spacer";
 
 function ProductListPage() {
   const {
@@ -16,7 +16,6 @@ function ProductListPage() {
     mockedCategories.results.map((categoryModel) => ({
       ...categoryModel,
       id: categoryModel.id,
-      name: categoryModel.data.name,
     }))
   );
   const filteredProducts = useMemo(

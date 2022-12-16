@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ChipGroup } from "../../utils/components/Chip";
+import Categories from "../products/Categories";
 
 const SidePanel = styled.aside`
   border-right: thin gray solid;
@@ -8,7 +8,10 @@ const SidePanel = styled.aside`
 
 /**
  *
- * @param {categories: [{id: string, name: string, selected: boolean}], onCategorySelected: (function(category): void)}
+ * @param {
+ *    categories: [{id: string, name: string, selected: boolean}],
+ *    onCategorySelected: (function(category): void)
+ * }
  * @param onCategorySelected
  * @returns {JSX.Element}
  * @constructor
@@ -17,7 +20,10 @@ function CategoriesSidePanel({ categories = [], onCategorySelected }) {
   return (
     <SidePanel>
       <h4>Categories</h4>
-      <ChipGroup data={categories} onItemSelected={onCategorySelected} />
+      <Categories
+        categories={categories}
+        onCategorySelected={onCategorySelected}
+      />
     </SidePanel>
   );
 }

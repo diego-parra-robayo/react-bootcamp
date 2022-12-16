@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Slideshow from "../../utils/components/Slideshow";
+import Slideshow from "../../components/Slideshow";
 
 /**
  *

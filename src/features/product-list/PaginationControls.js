@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MaterialIconButton } from "../../utils/components/MaterialIcon";
+import { MaterialIconButton } from "../../components/MaterialIcon";
 
 const ControlsContainer = styled.div`
   display: flex;

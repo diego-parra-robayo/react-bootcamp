@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { onPrimaryColor, primaryColor } from "../theme/colors";
+import { colorOnPrimary, colorPrimary } from "../utils/theme/colors";
 
-const Chip = styled.div`
+export const Chip = styled.div`
   padding: 0.5rem 1rem;
   cursor: pointer;
-  background: ${(props) => (props.selected ? primaryColor : "#ececec")};
-  color: ${(props) => (props.selected ? onPrimaryColor : "#000000")};
+  background: ${(props) => (props.selected ? colorPrimary : "#ececec")};
+  color: ${(props) => (props.selected ? colorOnPrimary : "#000000")};
   border-radius: 100px;
   font-weight: bold;
   user-select: none;
@@ -46,5 +46,3 @@ export function ChipGroup({ data = [], onItemSelected }) {
     </section>
   );
 }
-
-export default Chip;

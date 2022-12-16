@@ -4,3 +4,35 @@ body {
     margin: 2vh 4vw 0;
     font-family: Roboto, sans-serif;
 }
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container header {
+    margin-bottom: 1rem;
+}
+
+.app-container main {
+    display: flex;
+}
+
+.app-container section {
+    padding: 1rem 0;
+    flex-basis: auto;
+    flex-grow: 8;
+}
+
+.app-container aside {
+    min-width: 20vw;
+    max-width: 20vw;
+    margin-right: 2rem;
+    flex-basis: 20vw;
+    flex-grow: 2;
+}
+
+.app-container footer {
+    margin-top: 1rem;
+    clear: both;
+}

@@ -1,4 +1,4 @@
-import { MaterialIconButton } from "../../utils/components/MaterialIcon";
+import { MaterialIconButton } from "../../components/MaterialIcon";
 
 function ShoppingCartIcon() {
   return <MaterialIconButton iconName="shopping_cart" />;

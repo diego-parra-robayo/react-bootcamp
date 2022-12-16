@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Logo from "./Logo";
-import SearchBar from "../../utils/components/SearchBar";
+import SearchBar from "../../components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import { Link } from "react-router-dom";
 import HomePage from "../home/HomePage";

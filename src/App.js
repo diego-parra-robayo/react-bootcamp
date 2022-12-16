@@ -4,7 +4,6 @@ import Footer from "./features/footer/Footer";
 import HomePage from "./features/home/HomePage";
 import { Route, Routes } from "react-router-dom";
 import ProductListPage from "./features/product-list/ProductListPage";
-import "./App.css";
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();

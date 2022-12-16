@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import { MaterialIconButton } from "./MaterialIcon";
+import { colorControl } from "../utils/theme/colors";
 
 const StyledSearchBarForm = styled.form`
   width: 50%;
   max-width: 700px;
-  background: #f4f7f9;
+  background: ${colorControl};
   border-radius: 100px;
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  margin: 8px;
+  margin: 0.5rem;
 
   input {
     background: transparent;
     flex: 1;
     border: 0;
     outline: none;
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
 
   button {
