@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../../../utils/constants";
+import { API_BASE_URL } from "../core/constants";
 import axios from "axios";
 import { Mutex } from "async-mutex";
 import {

@@ -5,7 +5,7 @@ import {
   colorPrimary,
   colorPrimaryActive,
   colorPrimaryHover,
-} from "../utils/theme/colors";
+} from "../theme/colors";
 
 const Button = styled.button``;
 

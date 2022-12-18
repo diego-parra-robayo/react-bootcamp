@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { OutlinedButton } from "../../components/Button";
+import { OutlinedButton } from "../base-components/Button";
 
 const Card = styled.div`
   width: 15rem;

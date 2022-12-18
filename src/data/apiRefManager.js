@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_BASE_URL, API_REF_KEY } from "../../../utils/constants";
+import { API_BASE_URL, API_REF_KEY } from "../core/constants";
 
 export const getApiRefRemote = async () => {
   const response = await axios.get(API_BASE_URL);

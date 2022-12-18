@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colorControl, colorPrimary } from "../utils/theme/colors";
+import { colorControl, colorPrimary } from "../theme/colors";
 
 const spinAnimation = keyframes`
   0% { transform: rotate(0deg); }

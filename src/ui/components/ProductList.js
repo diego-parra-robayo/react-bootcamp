@@ -1,6 +1,6 @@
 import ProductListItem from "./ProductListItem";
 import styled from "styled-components";
-import Spacer from "../../components/Spacer";
+import Spacer from "../base-components/Spacer";
 
 const ProductListContainer = styled.div`
   display: flex;

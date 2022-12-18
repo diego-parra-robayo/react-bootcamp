@@ -1,27 +1,28 @@
-import FeaturedBanners from "../banner/FeaturedBanners";
-import Spacer from "../../components/Spacer";
-import ProductList from "../products/ProductList";
+import Spacer from "../../ui/base-components/Spacer";
 import ViewAllProductsButton from "./ViewAllProductsButton";
-import { useDispatch, useSelector } from "react-redux";
-import { selectProducts } from "../products/productsSlice";
 import { useEffect } from "react";
-import { loadFeaturedProducts } from "../products/productsThunks";
 import CategoriesSection from "./CategoriesSection";
+import { homePageStarted, selectHomeIsLoading } from "./homeSlice";
+import BannersSection from "./BannersSection";
+import { useDispatch, useSelector } from "react-redux";
+import Spinner from "../../ui/base-components/Spinner";
+import ProductsSection from "./ProductsSection";
 
 function HomePage() {
-  const products = useSelector(selectProducts);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadFeaturedProducts());
+    dispatch(homePageStarted());
   }, []);
+  const isLoading = useSelector(selectHomeIsLoading);
 
+  if (isLoading) return <Spinner />;
   return (
     <section>
-      <FeaturedBanners />
+      <BannersSection />
       <Spacer height="4rem" />
       <CategoriesSection />
       <Spacer height="4rem" />
-      <ProductList title="Products for you" products={products} />
+      <ProductsSection />
       <Spacer height="4rem" />
       <ViewAllProductsButton />
     </section>

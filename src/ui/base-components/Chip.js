@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorOnPrimary, colorPrimary } from "../utils/theme/colors";
+import { colorOnPrimary, colorPrimary } from "../theme/colors";
 
 export const Chip = styled.div`
   padding: 0.5rem 1rem;

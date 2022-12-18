@@ -1,32 +1,29 @@
 import CategoriesSidePanel from "./CategoriesSidePanel";
-import ProductList from "../products/ProductList";
 import PaginationControls from "./PaginationControls";
-import Spacer from "../../components/Spacer";
+import Spacer from "../../ui/base-components/Spacer";
 import { useDispatch, useSelector } from "react-redux";
-import { selectProducts } from "../products/productsSlice";
-import { selectCategoriesWithFilterState } from "../categories/extraCategoriesSelectors";
-import { toggleCategoryFilter } from "../products/productsThunks";
+import {
+  productsListPageStarted,
+  selectProductsListIsLoading,
+} from "./productsListSlice";
+import Spinner from "../../ui/base-components/Spinner";
+import { useEffect } from "react";
+import ProductsSection from "./ProductsSection";
 
 function ProductListPage() {
-  const categories = useSelector(selectCategoriesWithFilterState);
-  const products = useSelector(selectProducts);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(productsListPageStarted());
+  }, []);
+  const isLoading = useSelector(selectProductsListIsLoading);
+  if (isLoading) return <Spinner />;
   return (
     <main>
-      <CategoriesSidePanel
-        categories={categories}
-        onCategorySelected={(category) =>
-          dispatch(toggleCategoryFilter(category.id))
-        }
-      />
+      <CategoriesSidePanel />
       <section>
-        <ProductList products={products} />
+        <ProductsSection />
         <Spacer height={"2rem"} />
-        <PaginationControls
-          pageFrom={products.length === 0 ? 0 : 1}
-          pageTo={5}
-        />
+        <PaginationControls pageFrom={1} pageTo={5} />
       </section>
     </main>
   );

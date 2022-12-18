@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MaterialIconButton } from "./MaterialIcon";
-import { colorControl } from "../utils/theme/colors";
+import { colorControl } from "../theme/colors";
 
 const StyledSearchBarForm = styled.form`
   width: 50%;

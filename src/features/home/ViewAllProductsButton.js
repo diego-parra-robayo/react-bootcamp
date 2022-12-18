@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Center from "../../components/Center";
+import Center from "../../ui/base-components/Center";
 import { Link } from "react-router-dom";
 import ProductListPage from "../product-list/ProductListPage";
 
