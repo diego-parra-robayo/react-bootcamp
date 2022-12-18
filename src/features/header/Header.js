@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import SearchBar from "../../ui/base-components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import { Link } from "react-router-dom";
-import HomePage from "../home/HomePage";
+import routes from "../../core/routes";
 
 const StyledHeader = styled.header`
   height: 3rem;
@@ -21,7 +21,7 @@ const StyledLinkContainer = styled(Link)`
 function Header() {
   return (
     <StyledHeader>
-      <StyledLinkContainer to={HomePage.prototype.route}>
+      <StyledLinkContainer to={routes.home}>
         <Logo />
       </StyledLinkContainer>
       <SearchBar />

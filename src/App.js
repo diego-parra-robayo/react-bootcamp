@@ -3,24 +3,26 @@ import Footer from "./features/footer/Footer";
 import HomePage from "./features/home/HomePage";
 import { Route, Routes } from "react-router-dom";
 import ProductListPage from "./features/product-list/ProductListPage";
+import ProductDetailPage from "./features/product-detail/ProductDetailPage";
+import routes from "./core/routes";
 
 function App() {
   return (
     <div className="app-container">
       <Header />
       <Routes>
-        <Route path={HomePage.prototype.route} element={<HomePage />} />
+        {[routes.home, "/home"].map((path) => (
+          <Route key={path} path={path} element={<HomePage />} />
+        ))}
+        <Route path={routes.productsList} element={<ProductListPage />} />
         <Route
-          path={ProductListPage.prototype.route}
-          element={<ProductListPage />}
+          path={routes.productDetail(":id")}
+          element={<ProductDetailPage />}
         />
       </Routes>
       <Footer />
     </div>
   );
 }
-
-HomePage.prototype.route = "/";
-ProductListPage.prototype.route = "/product-list";
 
 export default App;

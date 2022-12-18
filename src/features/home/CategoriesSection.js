@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import ProductListPage from "../product-list/ProductListPage";
 import { useSelector } from "react-redux";
 import { selectHomeCategories } from "./homeSlice";
 import { ChipGroup } from "../../ui/base-components/Chip";
 import { createSelector } from "@reduxjs/toolkit";
+import routes from "../../core/routes";
 
 function CategoriesSection() {
   const categories = useSelector(
@@ -17,8 +17,11 @@ function CategoriesSection() {
     )
   );
   const navigate = useNavigate();
-  const onCategorySelected = () => {
-    navigate(ProductListPage.prototype.route);
+  const onCategorySelected = (category) => {
+    navigate({
+      pathname: routes.productsList,
+      search: `?category=${category.id}`,
+    });
   };
 
   return <ChipGroup data={categories} onItemSelected={onCategorySelected} />;

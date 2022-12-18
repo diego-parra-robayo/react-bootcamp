@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { getFeaturedBanners } from "../../data/bannersApi";
 import { getProductCategories } from "../../data/categoriesApi";
-import mockedFeaturedProds from "../../mocks/en-us/featured-products.json";
+import { getFeaturedProducts } from "../../data/productsApi";
 
 const initialState = {
   isLoading: false,
@@ -28,12 +28,13 @@ export const homePageStarted = () => async (dispatch) => {
   try {
     const bannersResult = await getFeaturedBanners();
     const categoriesResult = await getProductCategories();
+    const featuredProductsResult = await getFeaturedProducts();
     dispatch(
       updateState({
         isLoading: false,
         banners: bannersResult.results,
         categories: categoriesResult.results,
-        products: mockedFeaturedProds.results,
+        products: featuredProductsResult.results,
       })
     );
   } catch (err) {

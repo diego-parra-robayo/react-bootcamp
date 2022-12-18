@@ -7,7 +7,9 @@ import {
   colorPrimaryHover,
 } from "../theme/colors";
 
-const Button = styled.button``;
+const Button = styled.button`
+  cursor: pointer;
+`;
 
 export const OutlinedButton = styled(Button)`
   border: thin solid gray;

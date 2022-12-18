@@ -1,6 +1,8 @@
 import ProductListItem from "./ProductListItem";
 import styled from "styled-components";
 import Spacer from "../base-components/Spacer";
+import { useNavigate } from "react-router-dom";
+import routes from "../../core/routes";
 
 const ProductListContainer = styled.div`
   display: flex;
@@ -16,6 +18,7 @@ const ProductListContainer = styled.div`
  * @constructor
  */
 function ProductList({ title = "", products = [] }) {
+  const navigate = useNavigate();
   if (!products || products.length === 0) return <p>No products to show</p>;
   return (
     <section>
@@ -25,10 +28,12 @@ function ProductList({ title = "", products = [] }) {
         {products.map((product) => (
           <ProductListItem
             key={product.id}
+            id={product.id}
             imageUrl={product.data.mainimage.url}
             imageAlt={product.data.mainimage.alt}
             title={product.data.name}
             price={"$ " + product.data.price}
+            onClick={() => navigate(routes.productDetail(product.id))}
           />
         ))}
       </ProductListContainer>

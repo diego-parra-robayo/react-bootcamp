@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Center from "../../ui/base-components/Center";
 import { Link } from "react-router-dom";
-import ProductListPage from "../product-list/ProductListPage";
+import routes from "../../core/routes";
 
 const StyledLink = styled(Link)`
   &:link {
@@ -12,9 +12,7 @@ const StyledLink = styled(Link)`
 function ViewAllProductsButton() {
   return (
     <Center>
-      <StyledLink to={ProductListPage.prototype.route}>
-        View all products
-      </StyledLink>
+      <StyledLink to={routes.productsList}>View all products</StyledLink>
     </Center>
   );
 }
