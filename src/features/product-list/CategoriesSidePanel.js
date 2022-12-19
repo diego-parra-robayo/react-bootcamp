@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { selectProductsListCategories } from "./productsListSlice";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSearchParams } from "react-router-dom";
+import ClearFiltersButton from "./ClearFiltersButton";
+import Spacer from "../../ui/base-components/Spacer";
 
 const SidePanel = styled.aside`
   border-right: thin gray solid;
@@ -39,6 +41,9 @@ function CategoriesSidePanel() {
     <SidePanel>
       <h4>Categories</h4>
       <ChipGroup data={categories} onItemSelected={onCategorySelected} />
+      <Spacer height={"2rem"} />
+      <ClearFiltersButton />
+      <Spacer height={"2rem"} />
     </SidePanel>
   );
 }
