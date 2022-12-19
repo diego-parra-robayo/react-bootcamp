@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import routes from "../../core/routes";
 
 const ProductListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15rem);
   justify-content: space-between;
-  gap: 2rem 1rem;
+  grid-gap: 2rem 1rem;
 `;
 
 /**

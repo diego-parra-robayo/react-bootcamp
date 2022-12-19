@@ -1,6 +1,6 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { getProductCategories } from "../../data/categoriesApi";
-import mockedProducts from "../../mocks/en-us/products.json";
+import { getProducts } from "../../data/productsApi";
 
 const initialState = {
   isLoading: false,
@@ -35,8 +35,9 @@ export const productsListPageStarted =
           ...category,
           selected: categoriesIds.includes(category.id),
         })) ?? [];
+      const productsResult = await getProducts();
       const products =
-        mockedProducts.results?.filter((product) =>
+        productsResult.results?.filter((product) =>
           categoriesIds.includes(product.data.category.id)
         ) ?? [];
 

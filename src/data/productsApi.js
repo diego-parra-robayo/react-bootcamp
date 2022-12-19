@@ -16,3 +16,19 @@ export const getFeaturedProducts = async (config = {}) => {
   });
   return response.data;
 };
+
+export const getProducts = async (config = {}) => {
+  const response = await api.get("documents/search", {
+    ...config,
+    params: {
+      ...config.params,
+      q: [
+        '[[at(document.type, "product")]]',
+        '[[at(document.tags, ["Featured"])]]',
+      ],
+      pageSize: config.params?.pageSize ?? 12,
+      lang: config.params?.lang ?? defaultLanguage,
+    },
+  });
+  return response.data;
+};
