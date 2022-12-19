@@ -1,11 +1,15 @@
 import api from "./api";
+import { defaultLanguage } from "../core/constants";
 
-export const getFeaturedBanners = async ({ config = {} } = {}) => {
-  const response = await api.get(
-    `/documents/search?q=${encodeURIComponent(
-      '[[at(document.type, "banner")]]'
-    )}&lang=en-us&pageSize=5`,
-    config
-  );
+export const getFeaturedBanners = async (config = {}) => {
+  const response = await api.get("/documents/search", {
+    ...config,
+    params: {
+      ...config.params,
+      q: '[[at(document.type, "banner")]]',
+      pageSize: config.params?.pageSize ?? 5,
+      lang: config.params?.lang ?? defaultLanguage,
+    },
+  });
   return response.data;
 };

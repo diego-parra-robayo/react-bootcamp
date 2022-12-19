@@ -70,4 +70,19 @@ api.interceptors.response.use(
   }
 );
 
+api.defaults.paramsSerializer = {
+  serialize: (params) => {
+    const newParams = Object.keys(params).map((key) => {
+      let value;
+      if (Array.isArray(params[key]) && params[key]?.length > 0) {
+        value = params[key].map(encodeURIComponent).join("&" + key + "=");
+      } else {
+        value = encodeURIComponent(params[key]);
+      }
+      return `${key}=${value}`;
+    });
+    return newParams.join("&");
+  },
+};
+
 export default api;

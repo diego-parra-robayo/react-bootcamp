@@ -12,7 +12,7 @@ export function useApiQuery(query, { params = {} } = {}) {
       try {
         setDataWrapper({ isLoading: true, data: {}, error: null });
         const config = { signal: controller.signal };
-        const data = await query({ params, config });
+        const data = await query({ ...config, params });
         setDataWrapper({ isLoading: false, data, error: null });
       } catch (err) {
         setDataWrapper({ isLoading: false, data: {}, error: err });
