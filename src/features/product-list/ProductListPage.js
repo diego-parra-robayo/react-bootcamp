@@ -6,7 +6,6 @@ import {
   loadCategories,
   loadProducts,
   selectProductsListIsLoading,
-  selectProductsListPage,
   setCategories,
 } from "./productsListSlice";
 import Spinner from "../../ui/base-components/Spinner";
@@ -17,16 +16,13 @@ import { useSearchParams } from "react-router-dom";
 function ProductListPage() {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  const page = useSelector(selectProductsListPage);
   useEffect(() => {
     dispatch(loadCategories());
+    dispatch(loadProducts());
   }, []);
   useEffect(() => {
     dispatch(setCategories(searchParams.getAll("category")));
   }, [searchParams]);
-  useEffect(() => {
-    dispatch(loadProducts(page));
-  }, [page]);
 
   const isLoading = useSelector(selectProductsListIsLoading);
   if (isLoading) return <Spinner />;

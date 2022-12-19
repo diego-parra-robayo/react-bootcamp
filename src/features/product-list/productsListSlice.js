@@ -61,7 +61,7 @@ export const setCategories =
     dispatch(updateState({ selectedCategoriesIds: categoriesIds }));
   };
 
-export const setPage = (page) => (dispatch) => dispatch(updateState({ page }));
+export const setPage = (page) => (dispatch) => dispatch(loadProducts(page));
 
 export const selectProductsListIsLoading = (state) =>
   state.productsList.isLoading;
