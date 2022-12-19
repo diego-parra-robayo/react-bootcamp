@@ -7,8 +7,13 @@ import {
   colorPrimaryHover,
 } from "../theme/colors";
 
-const Button = styled.button`
+export const Button = styled.button`
+  opacity: 1;
   cursor: pointer;
+  &:disabled {
+    opacity: 0.75;
+    cursor: default;
+  }
 `;
 
 export const OutlinedButton = styled(Button)`

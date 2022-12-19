@@ -5,7 +5,10 @@ import { getProducts } from "../../data/productsApi";
 const initialState = {
   isLoading: false,
   categories: [],
+  selectedCategoriesIds: [],
   products: [],
+  page: 1,
+  totalPages: 1,
   error: null,
 };
 
@@ -21,31 +24,29 @@ const productsListSlice = createSlice({
 
 const { updateState } = productsListSlice.actions;
 
-export const productsListPageStarted =
-  (categoriesIds) => async (dispatch, getState) => {
+export const loadCategories = () => async (dispatch) => {
+  dispatch(updateState({ isLoading: true }));
+  try {
+    const categories = await getProductCategories();
+    dispatch(updateState({ isLoading: false, categories: categories.results }));
+  } catch (err) {
+    dispatch(updateState({ isLoading: false, error: err }));
+    console.error(err);
+  }
+};
+
+export const loadProducts =
+  (page = 1) =>
+  async (dispatch) => {
     dispatch(updateState({ isLoading: true }));
     try {
-      let categories = selectProductsListCategories(getState());
-      if (!categories || categories.length === 0) {
-        const categoriesResult = await getProductCategories();
-        categories = categoriesResult.results;
-      }
-      categories =
-        categories?.map((category) => ({
-          ...category,
-          selected: categoriesIds.includes(category.id),
-        })) ?? [];
-      const productsResult = await getProducts();
-      const products =
-        productsResult.results?.filter((product) =>
-          categoriesIds.includes(product.data.category.id)
-        ) ?? [];
-
+      const products = await getProducts({ params: { page } });
       dispatch(
         updateState({
           isLoading: false,
-          categories,
-          products,
+          products: products.results,
+          page: products.page,
+          totalPages: products.total_pages,
         })
       );
     } catch (err) {
@@ -54,19 +55,47 @@ export const productsListPageStarted =
     }
   };
 
-export const selectProductsListState = (state) => state.productsList;
+export const setCategories =
+  (categoriesIds = []) =>
+  async (dispatch) => {
+    dispatch(updateState({ selectedCategoriesIds: categoriesIds }));
+  };
 
-export const selectProductsListIsLoading = createSelector(
-  selectProductsListState,
-  (state) => state.isLoading ?? false
-);
+export const setPage = (page) => (dispatch) => dispatch(updateState({ page }));
+
+export const selectProductsListIsLoading = (state) =>
+  state.productsList.isLoading;
+
 export const selectProductsListCategories = createSelector(
-  selectProductsListState,
-  (state) => state.categories ?? []
+  [
+    (state) => state.productsList.categories ?? [],
+    (state) => state.productsList.selectedCategoriesIds ?? [],
+  ],
+  (categories, selectedIds) =>
+    categories.map((category) => ({
+      ...category,
+      selected: selectedIds.includes(category.id),
+    }))
 );
-export const selectProductsListProducts = createSelector(
-  selectProductsListState,
-  (state) => state.products ?? []
+
+export const selectProductsListFilteredProds = createSelector(
+  [
+    (state) => state.productsList.products ?? [],
+    (state) => state.productsList.selectedCategoriesIds ?? [],
+  ],
+  (products, selectedIds) => {
+    if (selectedIds.length === 0) return products;
+    return (
+      products?.filter((product) =>
+        selectedIds.includes(product.data.category.id)
+      ) ?? []
+    );
+  }
 );
+
+export const selectProductsListPage = (state) => state.productsList.page;
+
+export const selectProductsListTotalPages = (state) =>
+  state.productsList.totalPages;
 
 export default productsListSlice.reducer;
