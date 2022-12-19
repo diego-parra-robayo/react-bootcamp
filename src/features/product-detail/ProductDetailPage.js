@@ -1,12 +1,75 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  productDetailStarted,
+  selectProductDetailIsLoading,
+  selectProductDetailProduct,
+} from "./productDetailSlice";
+import styled from "styled-components";
+import Spinner from "../../ui/base-components/Spinner";
+
+const ProductDetailContainer = styled.div`
+  display: flex;
+  div:first-child {
+    flex: 5;
+    margin: 0 2rem 0 0;
+  }
+  div:last-child {
+    flex: 5;
+    div,
+    ul,
+    p {
+      margin: 2rem 0;
+    }
+    input {
+      margin: 0 1rem;
+    }
+  }
+`;
 
 function ProductDetailPage() {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectProductDetailIsLoading);
+  const product = useSelector(selectProductDetailProduct);
+  useEffect(() => {
+    if (id) dispatch(productDetailStarted(id));
+  }, [id]);
+
+  if (isLoading || !product?.id || !product.data) return <Spinner />;
   return (
-    <>
-      <h1>Product detail page</h1>
-      <p>Product id: {id}</p>
-    </>
+    <ProductDetailContainer>
+      <div>
+        <h2>Gallery</h2>
+      </div>
+      <div>
+        <h1>{product.data.name}</h1>
+        <h3>$ {product.data.price}</h3>
+        <div>Sku: {product.data.sku}</div>
+        <div>Category: {product.data.category.slug}</div>
+        <div>Tags</div>
+        <ul>
+          {product.tags?.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+        <p>{product.data.description[0].text}</p>
+        <form>
+          <label htmlFor="qty">Items: </label>
+          <input name="qty" placeholder="10" />
+          <button type="submit">Add to cart</button>
+        </form>
+        <div>Specs:</div>
+        <ul>
+          {product.data.specs?.map((spec) => (
+            <li key={spec.spec_name}>
+              {spec.spec_name}: {spec.spec_value}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </ProductDetailContainer>
   );
 }
 

@@ -33,3 +33,15 @@ export const getProducts = async (config = {}) => {
   console.log("products", response);
   return response.data;
 };
+
+export const getProduct = async (id, config = {}) => {
+  const response = await api.get("documents/search", {
+    ...config,
+    params: {
+      ...config.params,
+      q: `[[:d+=+at(document.id,+"${id}")+]]`,
+    },
+    paramsSerializer: { encode: (value) => value },
+  });
+  return response.data;
+};
