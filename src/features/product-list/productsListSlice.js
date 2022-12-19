@@ -21,49 +21,37 @@ const productsListSlice = createSlice({
 
 const { updateState } = productsListSlice.actions;
 
-export const productsListPageStarted = () => async (dispatch) => {
-  dispatch(updateState({ isLoading: true }));
-  try {
-    const categoriesResult = await getProductCategories();
-    dispatch(
-      updateState({
-        isLoading: false,
-        categories:
-          categoriesResult.results?.map((category) => ({
-            ...category,
-            selected: false,
-          })) ?? [],
-        products: mockedProducts.results ?? [],
-      })
-    );
-  } catch (err) {
-    dispatch(updateState({ isLoading: false, error: err }));
-    console.error(err);
-  }
-};
-
-export const toggleCategory = (categoryId) => async (dispatch, getState) => {
-  dispatch(updateState({ isLoading: true }));
-  try {
-    const categories = selectProductsListCategories(getState()).map(
-      (category) => {
-        if (category.id === categoryId)
-          return { ...category, selected: !category.selected };
-        return category;
+export const productsListPageStarted =
+  (categoriesIds) => async (dispatch, getState) => {
+    dispatch(updateState({ isLoading: true }));
+    try {
+      let categories = selectProductsListCategories(getState());
+      if (!categories || categories.length === 0) {
+        const categoriesResult = await getProductCategories();
+        categories = categoriesResult.results;
       }
-    );
-    const selectedCategoriesIds = categories
-      .filter((category) => category.selected)
-      .map((category) => category.id);
-    const products = mockedProducts.results.filter((product) =>
-      selectedCategoriesIds.includes(product.data.category.id)
-    );
-    dispatch(updateState({ isLoading: false, categories, products }));
-  } catch (err) {
-    dispatch(updateState({ isLoading: false, error: err }));
-    console.error(err);
-  }
-};
+      categories =
+        categories?.map((category) => ({
+          ...category,
+          selected: categoriesIds.includes(category.id),
+        })) ?? [];
+      const products =
+        mockedProducts.results?.filter((product) =>
+          categoriesIds.includes(product.data.category.id)
+        ) ?? [];
+
+      dispatch(
+        updateState({
+          isLoading: false,
+          categories,
+          products,
+        })
+      );
+    } catch (err) {
+      dispatch(updateState({ isLoading: false, error: err }));
+      console.error(err);
+    }
+  };
 
 export const selectProductsListState = (state) => state.productsList;
 

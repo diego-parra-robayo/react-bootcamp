@@ -9,12 +9,15 @@ import {
 import Spinner from "../../ui/base-components/Spinner";
 import { useEffect } from "react";
 import ProductsSection from "./ProductsSection";
+import { useSearchParams } from "react-router-dom";
 
 function ProductListPage() {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
   useEffect(() => {
-    dispatch(productsListPageStarted());
-  }, []);
+    dispatch(productsListPageStarted(searchParams.getAll("category")));
+  }, [searchParams]);
+
   const isLoading = useSelector(selectProductsListIsLoading);
   if (isLoading) return <Spinner />;
   return (

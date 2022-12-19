@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { ChipGroup } from "../../ui/base-components/Chip";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectProductsListCategories,
-  toggleCategory,
-} from "./productsListSlice";
+import { useSelector } from "react-redux";
+import { selectProductsListCategories } from "./productsListSlice";
 import { createSelector } from "@reduxjs/toolkit";
+import { useSearchParams } from "react-router-dom";
 
 const SidePanel = styled.aside`
   border-right: thin gray solid;
@@ -24,10 +22,18 @@ function CategoriesSidePanel() {
         })) ?? []
     )
   );
-  const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
   const onCategorySelected = (category) => {
-    console.log("category pressed", category);
-    dispatch(toggleCategory(category.id));
+    const categoryParams = [...searchParams.getAll("category")];
+    const index = categoryParams.findIndex((id) => id === category.id);
+    if (index === -1) {
+      categoryParams.push(category.id);
+    } else {
+      categoryParams.splice(index, 1);
+    }
+    searchParams.delete("category");
+    categoryParams.forEach((id) => searchParams.append("category", id));
+    setSearchParams(searchParams);
   };
   return (
     <SidePanel>

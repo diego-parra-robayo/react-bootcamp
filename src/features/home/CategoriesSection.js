@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectHomeCategories } from "./homeSlice";
 import { ChipGroup } from "../../ui/base-components/Chip";
@@ -20,7 +20,7 @@ function CategoriesSection() {
   const onCategorySelected = (category) => {
     navigate({
       pathname: routes.productsList,
-      search: `?category=${category.id}`,
+      search: `?${createSearchParams({ category: category.id })}`,
     });
   };
 
