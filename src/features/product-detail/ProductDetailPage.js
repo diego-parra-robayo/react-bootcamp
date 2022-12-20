@@ -9,6 +9,7 @@ import {
 import styled from "styled-components";
 import Spinner from "../../ui/base-components/Spinner";
 import Gallery from "./Gallery";
+import { OutlinedButton } from "../../ui/base-components/Button";
 
 const ProductDetailContainer = styled.div`
   display: flex;
@@ -25,6 +26,8 @@ const ProductDetailContainer = styled.div`
     }
     input {
       margin: 0 1rem;
+      width: 3rem;
+      padding: 0.2rem;
     }
   }
 `;
@@ -58,8 +61,8 @@ function ProductDetailPage() {
         <p>{product.data.description[0].text}</p>
         <form>
           <label htmlFor="qty">Items: </label>
-          <input name="qty" placeholder="10" />
-          <button type="submit">Add to cart</button>
+          <input name="qty" type="number" placeholder="10" />
+          <OutlinedButton type="submit">Add to cart</OutlinedButton>
         </form>
         <div>Specs:</div>
         <ul>
