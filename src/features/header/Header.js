@@ -26,13 +26,16 @@ function Header() {
       search: `?${createSearchParams({ q: query })}`,
     });
   };
+  const onCartIconPressed = () => {
+    navigate(routes.cart);
+  };
   return (
     <StyledHeader>
       <StyledLinkContainer to={routes.home}>
         <Logo />
       </StyledLinkContainer>
       <SearchBar onSearch={onSearch} />
-      <ShoppingCartIcon />
+      <ShoppingCartIcon onClick={onCartIconPressed} />
     </StyledHeader>
   );
 }

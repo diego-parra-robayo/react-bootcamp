@@ -6,6 +6,7 @@ import ProductListPage from "./features/product-list/ProductListPage";
 import ProductDetailPage from "./features/product-detail/ProductDetailPage";
 import routes from "./core/routes";
 import SearchPage from "./features/product-search/SearchPage";
+import CartPage from "./features/cart/CartPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           element={<ProductDetailPage />}
         />
         <Route path={routes.search} element={<SearchPage />} />
+        <Route path={routes.cart} element={<CartPage />} />
       </Routes>
       <Footer />
     </div>
