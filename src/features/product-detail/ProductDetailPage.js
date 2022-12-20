@@ -8,6 +8,7 @@ import {
 } from "./productDetailSlice";
 import styled from "styled-components";
 import Spinner from "../../ui/base-components/Spinner";
+import Gallery from "./Gallery";
 
 const ProductDetailContainer = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ function ProductDetailPage() {
   return (
     <ProductDetailContainer>
       <div>
-        <h2>Gallery</h2>
+        <Gallery images={product.data.images} />
       </div>
       <div>
         <h1>{product.data.name}</h1>

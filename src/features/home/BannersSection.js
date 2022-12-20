@@ -15,7 +15,7 @@ function BannersSection() {
         })) ?? []
     )
   );
-  return <Slideshow data={banners} interval={4000} />;
+  return <Slideshow data={banners} interval={4000} aspectRatio={1440 / 705} />;
 }
 
 export default BannersSection;

@@ -9,7 +9,7 @@ const fadeInAnimation = keyframes`
 
 const StyledContainer = styled.div`
   width: 100%;
-  aspect-ratio: 1440/705;
+  aspect-ratio: ${(props) => props.aspectRatio ?? 2};
   position: relative;
   background: transparent;
   border-radius: 2px;
@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
 
   img {
     width: 100%;
-    aspect-ratio: 1440/705;
+    height: 100%;
     animation-name: ${fadeInAnimation};
     animation-duration: 2s;
   }
@@ -55,7 +55,7 @@ const StyledArrowButton = styled(MaterialIconButton)`
  * @returns {JSX.Element|null}
  * @constructor
  */
-function Slideshow({ data = [], interval = 4000 }) {
+function Slideshow({ data = [], interval = 4000, aspectRatio }) {
   const {
     data: banner,
     setNext,
@@ -68,7 +68,7 @@ function Slideshow({ data = [], interval = 4000 }) {
   if (banner == null) return null;
   return (
     <section>
-      <StyledContainer interval={interval}>
+      <StyledContainer interval={interval} aspectRatio={aspectRatio}>
         <StyledArrowButton
           className="prev"
           iconName="arrow_back_ios"

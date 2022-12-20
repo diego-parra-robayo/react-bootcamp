@@ -30,7 +30,6 @@ export const getProducts = async (config = {}) => {
       lang: config.params?.lang ?? defaultLanguage,
     },
   });
-  console.log("products", response);
   return response.data;
 };
 
