@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { MaterialIconButton } from "./MaterialIcon";
 import { colorControl } from "../theme/colors";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import routes from "../../core/routes";
+import {
+  createSearchParams,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 const StyledSearchBarForm = styled.form`
   width: 50%;
@@ -28,19 +35,33 @@ const StyledSearchBarForm = styled.form`
   }
 `;
 
-function SearchBar({ placeholder = "Search...", onSearch }) {
-  const [searchValue, setSearchValue] = useState("");
+function SearchBar({ placeholder = "Search..." }) {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const searchQuery = useMemo(() => searchParams.get("q"), [searchParams]);
+  useEffect(() => {
+    if (location.pathname !== routes.search || searchQuery == null) {
+      setQuery("");
+    }
+  }, [location, searchQuery]);
+
   function onSubmit(e) {
     e.preventDefault();
-    onSearch(searchValue);
+    navigate({
+      pathname: routes.search,
+      search: `?${createSearchParams({ q: query })}`,
+    });
   }
+
   return (
     <StyledSearchBarForm onSubmit={onSubmit}>
       <input
         type="text"
         placeholder={placeholder}
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <MaterialIconButton type="submit" iconName="search" />
     </StyledSearchBarForm>
