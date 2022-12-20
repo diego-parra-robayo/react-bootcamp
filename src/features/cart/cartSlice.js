@@ -1,5 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { showAlert } from "../app/appSlice";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const initialState = {
   isLoading: false,
@@ -49,3 +51,14 @@ export const selectCartItemsQty = createSelector(
 );
 
 export default cartSlice.reducer;
+
+const persistConfig = {
+  key: "cart",
+  version: 1,
+  storage,
+};
+
+export const persistedCartReducer = persistReducer(
+  persistConfig,
+  cartSlice.reducer
+);
