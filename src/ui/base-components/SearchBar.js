@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MaterialIconButton } from "./MaterialIcon";
 import { colorControl } from "../theme/colors";
+import { useState } from "react";
 
 const StyledSearchBarForm = styled.form`
   width: 50%;
@@ -27,10 +28,20 @@ const StyledSearchBarForm = styled.form`
   }
 `;
 
-function SearchBar({ placeholder = "Search..." }) {
+function SearchBar({ placeholder = "Search...", onSearch }) {
+  const [searchValue, setSearchValue] = useState("");
+  function onSubmit(e) {
+    e.preventDefault();
+    onSearch(searchValue);
+  }
   return (
-    <StyledSearchBarForm>
-      <input type="text" placeholder={placeholder} />
+    <StyledSearchBarForm onSubmit={onSubmit}>
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+      />
       <MaterialIconButton type="submit" iconName="search" />
     </StyledSearchBarForm>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import SearchBar from "../../ui/base-components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
-import { Link } from "react-router-dom";
+import { createSearchParams, Link, useNavigate } from "react-router-dom";
 import routes from "../../core/routes";
 
 const StyledHeader = styled.header`
@@ -19,12 +19,19 @@ const StyledLinkContainer = styled(Link)`
 `;
 
 function Header() {
+  const navigate = useNavigate();
+  const onSearch = (query) => {
+    navigate({
+      pathname: routes.search,
+      search: `?${createSearchParams({ q: query })}`,
+    });
+  };
   return (
     <StyledHeader>
       <StyledLinkContainer to={routes.home}>
         <Logo />
       </StyledLinkContainer>
-      <SearchBar />
+      <SearchBar onSearch={onSearch} />
       <ShoppingCartIcon />
     </StyledHeader>
   );
