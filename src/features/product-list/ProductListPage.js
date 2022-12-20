@@ -1,5 +1,5 @@
 import CategoriesSidePanel from "./CategoriesSidePanel";
-import PaginationControls from "./PaginationControls";
+import PaginationControlsSection from "./PaginationControlsSection";
 import Spacer from "../../ui/base-components/Spacer";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -32,7 +32,7 @@ function ProductListPage() {
       <section>
         <ProductsSection />
         <Spacer height={"2rem"} />
-        <PaginationControls />
+        <PaginationControlsSection />
       </section>
     </main>
   );

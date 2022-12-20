@@ -1,12 +1,7 @@
 import styled from "styled-components";
-import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectProductsListPage,
-  selectProductsListTotalPages,
-  setPage,
-} from "./productsListSlice";
-import { colorPrimary } from "../../ui/theme/colors";
+import { colorPrimary } from "../theme/colors";
+import { MaterialIconButton } from "../base-components/MaterialIcon";
+import { range } from "../../core/utils/listUtils";
 
 const ControlsContainer = styled.div`
   display: flex;
@@ -21,26 +16,24 @@ const PageNumberButton = styled.span`
   text-decoration: underline;
 `;
 
-function PaginationControls() {
-  const page = useSelector(selectProductsListPage);
-  const totalPages = useSelector(selectProductsListTotalPages);
-  const dispatch = useDispatch();
-  const onPageClick = (p) => {
+function PaginationControls({ page, totalPages, onPageClick }) {
+  const safeOnPageClick = (p) => {
     if (p === page || page < 1 || page > totalPages) return;
-    dispatch(setPage(p));
+    onPageClick(page);
   };
+  if (page <= 0 || page > totalPages || totalPages <= 1) return null;
   return (
     <ControlsContainer>
       <MaterialIconButton
         iconName="arrow_back_ios"
         disabled={page === 1}
-        onClick={() => onPageClick(page - 1)}
+        onClick={() => safeOnPageClick(page - 1)}
       />
       {range(1, totalPages).map((pageNumber) => (
         <PageNumberButton
           key={pageNumber}
           selected={pageNumber === page}
-          onClick={() => onPageClick(pageNumber)}
+          onClick={() => safeOnPageClick(pageNumber)}
         >
           {pageNumber}
         </PageNumberButton>
@@ -48,16 +41,10 @@ function PaginationControls() {
       <MaterialIconButton
         iconName="arrow_forward_ios"
         disabled={page === totalPages}
-        onClick={() => onPageClick(page + 1)}
+        onClick={() => safeOnPageClick(page + 1)}
       />
     </ControlsContainer>
   );
-}
-
-function range(from = 0, to = 0) {
-  if (from > to) return [];
-  if (from === to) return [from];
-  return [...Array(to - from + 1).keys()].map((i) => i + from);
 }
 
 export default PaginationControls;

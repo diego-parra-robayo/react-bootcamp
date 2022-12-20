@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import ProductListPage from "./features/product-list/ProductListPage";
 import ProductDetailPage from "./features/product-detail/ProductDetailPage";
 import routes from "./core/routes";
+import SearchPage from "./features/product-search/SearchPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           path={routes.productDetail(":id")}
           element={<ProductDetailPage />}
         />
+        <Route path={routes.search} element={<SearchPage />} />
       </Routes>
       <Footer />
     </div>
