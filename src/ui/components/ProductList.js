@@ -19,6 +19,8 @@ const ProductListContainer = styled.div`
  */
 function ProductList({ title = "", products = [] }) {
   const navigate = useNavigate();
+  const navigateToProductDetail = (productId) =>
+    navigate(routes.productDetail(productId));
   if (!products || products.length === 0) return <p>No products to show</p>;
   return (
     <section>
@@ -33,7 +35,8 @@ function ProductList({ title = "", products = [] }) {
             imageAlt={product.data.mainimage.alt}
             title={product.data.name}
             price={"$ " + product.data.price}
-            onClick={() => navigate(routes.productDetail(product.id))}
+            onImageClick={navigateToProductDetail}
+            onAddToCartButtonClick={navigateToProductDetail}
           />
         ))}
       </ProductListContainer>

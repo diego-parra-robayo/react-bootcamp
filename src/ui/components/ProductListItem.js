@@ -15,13 +15,23 @@ const Card = styled.div`
     margin: 0.75rem;
   }
 `;
-function ProductListItem({ id, imageUrl, imageAlt, title, price, onClick }) {
+function ProductListItem({
+  id,
+  imageUrl,
+  imageAlt,
+  title,
+  price,
+  onImageClick,
+  onAddToCartButtonClick,
+}) {
   return (
     <Card>
-      <img src={imageUrl} alt={imageAlt} onClick={() => onClick(id)} />
+      <img src={imageUrl} alt={imageAlt} onClick={() => onImageClick(id)} />
       <h3>{title}</h3>
       <h5>{price}</h5>
-      <OutlinedButton>Add to cart</OutlinedButton>
+      <OutlinedButton onClick={() => onAddToCartButtonClick(id)}>
+        Add to cart
+      </OutlinedButton>
     </Card>
   );
 }
