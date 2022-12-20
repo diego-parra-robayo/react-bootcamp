@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  alertMessage: null,
+  popUpMessage: null,
 };
 
 const appSlice = createSlice({
@@ -9,16 +9,16 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     showAlert: (state, action) => {
-      return { ...state, alertMessage: action.payload };
+      return { ...state, popUpMessage: action.payload };
     },
     alertMessageShown: (state) => {
-      return { ...state, alertMessage: null };
+      return { ...state, popUpMessage: null };
     },
   },
 });
 
 export const { showAlert, alertMessageShown } = appSlice.actions;
 
-export const selectAlertMessage = (state) => state.app.alertMessage;
+export const selectPopUpMessage = (state) => state.app.popUpMessage;
 
 export default appSlice.reducer;

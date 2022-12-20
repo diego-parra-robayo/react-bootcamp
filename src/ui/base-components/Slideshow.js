@@ -1,11 +1,7 @@
 import { MaterialIconButton } from "./MaterialIcon";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useCallback, useEffect, useState } from "react";
-
-const fadeInAnimation = keyframes`
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-`;
+import fadeInAnimation from "../animations/fadeInAnimation";
 
 const StyledContainer = styled.div`
   width: 100%;

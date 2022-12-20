@@ -26,7 +26,9 @@ function AddProductForm() {
 
   function onSubmit(e) {
     e.preventDefault();
-    dispatch(cartAddProductQuantity(product, quantity));
+    dispatch(
+      cartAddProductQuantity(product, quantity, { showAddedMessage: true })
+    );
     setQuantitySafe(initialQty);
   }
 

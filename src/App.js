@@ -8,18 +8,20 @@ import routes from "./core/routes";
 import SearchPage from "./features/product-search/SearchPage";
 import CartPage from "./features/cart/CartPage";
 import { useDispatch, useSelector } from "react-redux";
-import { alertMessageShown, selectAlertMessage } from "./features/app/appSlice";
-import { useEffect } from "react";
+import { alertMessageShown, selectPopUpMessage } from "./features/app/appSlice";
+import { useEffect, useRef } from "react";
+import Snackbar from "./ui/base-components/Snackbar";
 
 function App() {
-  const alertMessage = useSelector(selectAlertMessage);
+  const snackbarRef = useRef();
+  const popUpMessage = useSelector(selectPopUpMessage);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (alertMessage != null) {
-      alert(alertMessage);
+    if (popUpMessage != null) {
+      snackbarRef.current.show(popUpMessage);
       dispatch(alertMessageShown());
     }
-  }, [alertMessage]);
+  }, [popUpMessage]);
   return (
     <div className="app-container">
       <Header />
@@ -36,6 +38,7 @@ function App() {
         <Route path={routes.cart} element={<CartPage />} />
       </Routes>
       <Footer />
+      <Snackbar ref={snackbarRef} />
     </div>
   );
 }

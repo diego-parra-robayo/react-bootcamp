@@ -60,17 +60,15 @@ export const cartUpdateQty = (product, quantity) => (dispatch, getState) => {
 };
 
 export const cartAddProductQuantity =
-  (product, quantity = 1) =>
+  (product, quantity = 1, { showAddedMessage = false } = {}) =>
   (dispatch) => {
     const stock = product.data.stock ?? 0;
-    let newProd = false;
     dispatch(
-      cartUpdateQty(product, (current) => {
-        if (current === 0) newProd = true;
-        return current + quantity < stock ? current + quantity : stock;
-      })
+      cartUpdateQty(product, (current) =>
+        current + quantity < stock ? current + quantity : stock
+      )
     );
-    if (newProd) dispatch(showAlert("Product added to cart!"));
+    if (showAddedMessage) dispatch(showAlert("Product added to cart!"));
   };
 
 export const cartRemoveProductQuantity =

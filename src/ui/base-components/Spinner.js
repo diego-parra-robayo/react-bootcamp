@@ -1,10 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { colorControl, colorPrimary } from "../theme/colors";
-
-const spinAnimation = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-`;
+import spinAnimation from "../animations/spinAnimation";
 
 const Spinner = styled.div`
   margin: auto;
