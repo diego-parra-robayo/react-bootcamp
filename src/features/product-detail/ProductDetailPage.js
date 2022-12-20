@@ -9,7 +9,7 @@ import {
 import styled from "styled-components";
 import Spinner from "../../ui/base-components/Spinner";
 import Gallery from "./Gallery";
-import { OutlinedButton } from "../../ui/base-components/Button";
+import AddProductForm from "./AddProductForm";
 
 const ProductDetailContainer = styled.div`
   display: flex;
@@ -59,11 +59,7 @@ function ProductDetailPage() {
           ))}
         </ul>
         <p>{product.data.description[0].text}</p>
-        <form>
-          <label htmlFor="qty">Items: </label>
-          <input name="qty" type="number" placeholder="10" />
-          <OutlinedButton type="submit">Add to cart</OutlinedButton>
-        </form>
+        <AddProductForm />
         <div>Specs:</div>
         <ul>
           {product.data.specs?.map((spec) => (

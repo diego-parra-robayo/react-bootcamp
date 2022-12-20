@@ -4,6 +4,8 @@ import SearchBar from "../../ui/base-components/SearchBar";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import { createSearchParams, Link, useNavigate } from "react-router-dom";
 import routes from "../../core/routes";
+import { useSelector } from "react-redux";
+import { selectCartItemsQty } from "../cart/cartSlice";
 
 const StyledHeader = styled.header`
   height: 3rem;
@@ -20,6 +22,7 @@ const StyledLinkContainer = styled(Link)`
 
 function Header() {
   const navigate = useNavigate();
+  const cartItemsQty = useSelector(selectCartItemsQty);
   const onSearch = (query) => {
     navigate({
       pathname: routes.search,
@@ -35,7 +38,7 @@ function Header() {
         <Logo />
       </StyledLinkContainer>
       <SearchBar onSearch={onSearch} />
-      <ShoppingCartIcon onClick={onCartIconPressed} />
+      <ShoppingCartIcon quantity={cartItemsQty} onClick={onCartIconPressed} />
     </StyledHeader>
   );
 }

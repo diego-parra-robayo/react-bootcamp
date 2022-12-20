@@ -7,8 +7,19 @@ import ProductDetailPage from "./features/product-detail/ProductDetailPage";
 import routes from "./core/routes";
 import SearchPage from "./features/product-search/SearchPage";
 import CartPage from "./features/cart/CartPage";
+import { useDispatch, useSelector } from "react-redux";
+import { alertMessageShown, selectAlertMessage } from "./features/app/appSlice";
+import { useEffect } from "react";
 
 function App() {
+  const alertMessage = useSelector(selectAlertMessage);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (alertMessage != null) {
+      alert(alertMessage);
+      dispatch(alertMessageShown());
+    }
+  }, [alertMessage]);
   return (
     <div className="app-container">
       <Header />
