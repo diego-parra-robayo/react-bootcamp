@@ -1,5 +1,5 @@
 import { OutlinedButton } from "../../ui/base-components/Button";
-import { cartAddProductToCart } from "../cart/cartSlice";
+import { cartAddProductQuantity } from "../cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import {
@@ -26,7 +26,7 @@ function AddProductForm() {
 
   function onSubmit(e) {
     e.preventDefault();
-    dispatch(cartAddProductToCart(product, quantity));
+    dispatch(cartAddProductQuantity(product, quantity));
     setQuantitySafe(initialQty);
   }
 

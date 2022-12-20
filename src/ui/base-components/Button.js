@@ -44,3 +44,12 @@ export const FilledButton = styled(Button)`
     background: ${colorPrimaryActive};
   }
 `;
+
+export const TextButton = styled(Button)`
+  background-color: transparent;
+  color: ${({ selected }) => (selected ? colorPrimary : "#000000")};
+  cursor: ${({ selected }) => (selected ? "default" : "pointer")};
+  text-decoration: underline;
+  font-size: 1rem;
+  border: none;
+`;
