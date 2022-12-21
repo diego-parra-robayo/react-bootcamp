@@ -22,11 +22,11 @@ export const OutlinedButton = styled(Button)`
   background: transparent;
   padding: 0.5rem 1rem;
 
-  &:hover {
+  &:hover:enabled {
     background: ${colorControlHover};
   }
 
-  &:active {
+  &:active:enabled {
     background: ${colorControlActive};
   }
 `;
@@ -36,11 +36,11 @@ export const FilledButton = styled(Button)`
   padding: 0.5rem 1rem;
   background: ${colorPrimary};
 
-  &:hover {
+  &:hover:enabled {
     background: ${colorPrimaryHover};
   }
 
-  &:active {
+  &:active:enabled {
     background: ${colorPrimaryActive};
   }
 `;

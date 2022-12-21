@@ -1,7 +1,7 @@
 import { OutlinedButton } from "../../ui/base-components/Button";
 import { cartAddProductQuantity } from "../cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   selectMaxStockAvailable,
   selectProductDetailProduct,
@@ -15,13 +15,18 @@ function AddProductForm() {
   const product = useSelector(selectProductDetailProduct);
   const maxStockAvailable = useSelector(selectMaxStockAvailable);
 
+  useEffect(() => {
+    if (quantity > maxStockAvailable) setQuantity(maxStockAvailable);
+  }, [maxStockAvailable]);
+
   function setQuantitySafe(newValue) {
-    if (newValue <= 0) return;
-    if (newValue > maxStockAvailable) {
+    if (newValue <= 0) {
+      setQuantity(0);
+    } else if (newValue > maxStockAvailable) {
       setQuantity(maxStockAvailable);
-      return;
+    } else {
+      setQuantity(newValue);
     }
-    setQuantity(newValue);
   }
 
   function onSubmit(e) {
