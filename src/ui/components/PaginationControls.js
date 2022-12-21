@@ -19,7 +19,7 @@ const PageNumberButton = styled.span`
 function PaginationControls({ page, totalPages, onPageClick }) {
   const safeOnPageClick = (p) => {
     if (p === page || page < 1 || page > totalPages) return;
-    onPageClick(page);
+    onPageClick(p);
   };
   if (page <= 0 || page > totalPages || totalPages <= 1) return null;
   return (
