@@ -24,6 +24,11 @@ const productsListSlice = createSlice({
 
 const { updateState } = productsListSlice.actions;
 
+export const productListStarted = () => async (dispatch) => {
+  dispatch(loadCategories());
+  dispatch(loadProducts());
+};
+
 export const loadCategories = () => async (dispatch) => {
   dispatch(updateState({ isLoading: true }));
   try {

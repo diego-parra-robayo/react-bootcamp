@@ -13,6 +13,7 @@ const SidePanel = styled.aside`
 `;
 
 function CategoriesSidePanel() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const categories = useSelector(
     createSelector(
       selectProductsListCategories,
@@ -24,7 +25,7 @@ function CategoriesSidePanel() {
         })) ?? []
     )
   );
-  const [searchParams, setSearchParams] = useSearchParams();
+
   const onCategorySelected = (category) => {
     const categoryParams = [...searchParams.getAll("category")];
     const index = categoryParams.findIndex((id) => id === category.id);
@@ -37,6 +38,7 @@ function CategoriesSidePanel() {
     categoryParams.forEach((id) => searchParams.append("category", id));
     setSearchParams(searchParams);
   };
+
   return (
     <SidePanel>
       <h4>Categories</h4>

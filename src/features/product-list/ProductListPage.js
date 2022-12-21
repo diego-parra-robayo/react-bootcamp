@@ -3,26 +3,29 @@ import PaginationControlsSection from "./PaginationControlsSection";
 import Spacer from "../../ui/base-components/Spacer";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  loadCategories,
-  loadProducts,
+  productListStarted,
   selectProductsListIsLoading,
   setCategories,
 } from "./productsListSlice";
 import Spinner from "../../ui/base-components/Spinner";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import ProductsSection from "./ProductsSection";
 import { useSearchParams } from "react-router-dom";
 
 function ProductListPage() {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
+  const categories = useMemo(
+    () => searchParams.getAll("category"),
+    [searchParams]
+  );
+
   useEffect(() => {
-    dispatch(loadCategories());
-    dispatch(loadProducts());
+    dispatch(productListStarted());
   }, []);
   useEffect(() => {
-    dispatch(setCategories(searchParams.getAll("category")));
-  }, [searchParams]);
+    dispatch(setCategories(categories));
+  }, [categories]);
 
   const isLoading = useSelector(selectProductsListIsLoading);
   if (isLoading) return <Spinner />;
