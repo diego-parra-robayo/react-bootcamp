@@ -22,10 +22,7 @@ export const getProducts = async (config = {}) => {
     ...config,
     params: {
       ...config.params,
-      q: [
-        '[[at(document.type, "product")]]',
-        '[[at(document.tags, ["Featured"])]]',
-      ],
+      q: '[[at(document.type, "product")]]',
       pageSize: config.params?.pageSize ?? 12,
       lang: config.params?.lang ?? defaultLanguage,
     },
