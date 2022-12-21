@@ -11,14 +11,20 @@ const StyledHeader = styled.tr`
     text-align: center;
   }
 
-  th:not(:nth-child(2)) {
-    width: 10%;
+  th:not(:nth-child(3)) {
+    width: 8%;
+  }
+
+  th:nth-child(1) {
+    padding: 0;
+    width: 2%;
   }
 `;
 
 function CartItemHeader() {
   return (
     <StyledHeader>
+      <th />
       <th />
       <th>Item</th>
       <th>Quantity</th>

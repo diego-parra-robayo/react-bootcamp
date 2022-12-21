@@ -12,6 +12,7 @@ export const MaterialIconButton = styled(Button).attrs((props) => ({
 }))`
   background: transparent;
   border: 0;
+  color: ${({ color }) => (color ? color : "#000")};
 `;
 
 export default MaterialIcon;

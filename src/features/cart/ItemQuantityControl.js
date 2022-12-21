@@ -5,8 +5,11 @@ const QuantityContainer = styled.div`
   margin: auto;
   display: flex;
   justify-content: center;
+
   span {
-    margin: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: #dadada solid 1px;
   }
 `;
 

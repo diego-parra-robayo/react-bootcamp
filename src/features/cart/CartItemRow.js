@@ -1,18 +1,31 @@
 import ItemQuantityControl from "./ItemQuantityControl";
 import { useDispatch } from "react-redux";
-import { cartAddProductQuantity, cartRemoveProductQuantity } from "./cartSlice";
+import {
+  cartAddProductQuantity,
+  cartDeleteProduct,
+  cartRemoveProductQuantity,
+} from "./cartSlice";
 import styled from "styled-components";
+import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
+import { red } from "../../ui/theme/colors";
 
 const StyledRow = styled.tr`
   border-bottom: 1px solid;
   align-items: center;
 
   td {
-    padding: 2rem;
+    padding: 0 2rem;
     text-align: center;
   }
-  td:nth-child(2) {
+  td:nth-child(3) {
     text-align: start;
+  }
+  td:nth-child(1) {
+    padding: 0;
+  }
+  td:last-child {
+    text-align: end;
+    padding: 0 1rem;
   }
 
   img {
@@ -25,6 +38,13 @@ function CartItemRow({ item: { product, quantity } }) {
   return (
     <StyledRow>
       <td>
+        <MaterialIconButton
+          iconName={"delete"}
+          color={red}
+          onClick={() => dispatch(cartDeleteProduct(product))}
+        />
+      </td>
+      <td>
         <img
           src={product.data.mainimage.url}
           alt={product.data.mainimage.alt}
@@ -32,6 +52,11 @@ function CartItemRow({ item: { product, quantity } }) {
       </td>
       <td>
         <h3>{product.data.name}</h3>
+        <h5>
+          SKU: {product.data.sku}
+          <br />
+          Price: ${product.data.price} / unit
+        </h5>
       </td>
       <td>
         <ItemQuantityControl
@@ -41,7 +66,7 @@ function CartItemRow({ item: { product, quantity } }) {
           onRemovePressed={() => dispatch(cartRemoveProductQuantity(product))}
         />
       </td>
-      <td>${product.data.price * quantity}</td>
+      <td>$ {product.data.price * quantity}</td>
     </StyledRow>
   );
 }

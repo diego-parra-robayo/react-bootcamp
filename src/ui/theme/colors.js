@@ -10,3 +10,5 @@ export const onColorControl = "#000000";
 export const colorControlHover = "#e5e8ea";
 
 export const colorControlActive = "#d0d2d5";
+
+export const red = "#b70000";

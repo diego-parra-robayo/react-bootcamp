@@ -111,6 +111,10 @@ export const cartDeleteProduct =
   };
 
 export const cartClear = () => (dispatch) => {
+  const confirm = window.confirm(
+    `Are you sure you want to delete all items in your cart?`
+  );
+  if (!confirm) return;
   dispatch(updateState({ items: [] }));
 };
 
