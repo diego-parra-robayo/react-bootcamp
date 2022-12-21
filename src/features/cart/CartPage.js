@@ -1,11 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { cartClear, selectCartItems } from "./cartSlice";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "./cartSlice";
 import styled from "styled-components";
-import { TextButton } from "../../ui/base-components/Button";
-import Center from "../../ui/base-components/Center";
 import Spacer from "../../ui/base-components/Spacer";
 import CartItemRow from "./CartItemRow";
 import CartItemHeader from "./CartItemHeader";
+import CartSubtotal from "./CartSubtotal";
 
 const StyledTable = styled.table`
   table-layout: fixed;
@@ -15,7 +14,6 @@ const StyledTable = styled.table`
 
 function CartPage() {
   const items = useSelector(selectCartItems);
-  const dispatch = useDispatch();
   if (items.length === 0) return <p>No items added to cart yet</p>;
   return (
     <section>
@@ -28,13 +26,11 @@ function CartPage() {
             <CartItemRow key={item.product.id} item={item} />
           ))}
         </tbody>
+        <tfoot>
+          <CartSubtotal />
+        </tfoot>
       </StyledTable>
       <Spacer height={"2rem"} />
-      <Center>
-        <TextButton onClick={() => dispatch(cartClear())}>
-          Clear cart
-        </TextButton>
-      </Center>
     </section>
   );
 }

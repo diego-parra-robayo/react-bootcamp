@@ -4,6 +4,7 @@ const routes = {
   productDetail: (id) => `/product/${id}`,
   search: "/search",
   cart: "/cart",
+  checkout: "/checkout",
 };
 
 export default routes;

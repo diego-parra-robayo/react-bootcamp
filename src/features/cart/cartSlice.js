@@ -28,6 +28,14 @@ export const selectCartItemsQty = createSelector(
   (items) => items.length
 );
 
+export const selectCartTotal = createSelector([selectCartItems], (items) =>
+  items.reduce(
+    (accumulator, item) =>
+      accumulator + item.product.data.price * item.quantity,
+    0
+  )
+);
+
 const selectItemById = (productId) =>
   createSelector([selectCartItems], (items) =>
     items.find((item) => item.product.id === productId)

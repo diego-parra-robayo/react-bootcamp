@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { alertMessageShown, selectPopUpMessage } from "./features/app/appSlice";
 import { useEffect, useRef } from "react";
 import Snackbar from "./ui/base-components/Snackbar";
+import CheckoutPage from "./features/checkout/CheckoutPage";
 
 function App() {
   const snackbarRef = useRef();
@@ -36,6 +37,7 @@ function App() {
         />
         <Route path={routes.search} element={<SearchPage />} />
         <Route path={routes.cart} element={<CartPage />} />
+        <Route path={routes.checkout} element={<CheckoutPage />} />
       </Routes>
       <Footer />
       <Snackbar ref={snackbarRef} />
