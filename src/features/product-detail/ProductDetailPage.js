@@ -10,24 +10,21 @@ import styled from "styled-components";
 import Spinner from "../../ui/base-components/Spinner";
 import Gallery from "./Gallery";
 import AddProductForm from "./AddProductForm";
+import ProductDetailTagsSection from "./ProductDetailTagsSection";
+import ProductDetailTitleSection from "./ProductDetailTitleSection";
+import ProductDetailSpecsSection from "./ProductDetailSpecsSection";
 
 const ProductDetailContainer = styled.div`
   display: flex;
-  div:first-child {
+  & > *:first-child {
     flex: 5;
     margin: 0 2rem 0 0;
   }
-  div:last-child {
+  & > *:last-child {
     flex: 5;
     div,
-    ul,
     p {
-      margin: 2rem 0;
-    }
-    input {
-      margin: 0 1rem;
-      width: 3rem;
-      padding: 0.2rem;
+      margin: 1rem 0;
     }
   }
 `;
@@ -44,31 +41,19 @@ function ProductDetailPage() {
   if (isLoading || !product?.id || !product.data) return <Spinner />;
   return (
     <ProductDetailContainer>
-      <div>
-        <Gallery images={product.data.images} />
-      </div>
-      <div>
-        <h1>{product.data.name}</h1>
-        <h3>$ {product.data.price}</h3>
+      <Gallery images={product.data.images} />
+      <section>
+        <ProductDetailTitleSection
+          name={product.data.name}
+          price={product.data.price}
+        />
         <div>Sku: {product.data.sku}</div>
         <div>Category: {product.data.category.slug}</div>
-        <div>Tags</div>
-        <ul>
-          {product.tags?.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        <ProductDetailTagsSection tags={product.tags} />
         <p>{product.data.description[0].text}</p>
         <AddProductForm />
-        <div>Specs:</div>
-        <ul>
-          {product.data.specs?.map((spec) => (
-            <li key={spec.spec_name}>
-              {spec.spec_name}: {spec.spec_value}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <ProductDetailSpecsSection specs={product.data.specs} />
+      </section>
     </ProductDetailContainer>
   );
 }

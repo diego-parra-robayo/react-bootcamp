@@ -6,6 +6,16 @@ import {
   selectMaxStockAvailable,
   selectProductDetailProduct,
 } from "./productDetailSlice";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  padding: 2rem 0;
+  input {
+    margin: 0 1rem;
+    width: 3rem;
+    padding: 0.2rem;
+  }
+`;
 
 const initialQty = 1;
 
@@ -38,7 +48,7 @@ function AddProductForm() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit}>
       <label htmlFor="qty">Items: </label>
       <input
         name="qty"
@@ -49,7 +59,7 @@ function AddProductForm() {
       <OutlinedButton type="submit" disabled={maxStockAvailable <= 0}>
         Add to cart
       </OutlinedButton>
-    </form>
+    </StyledForm>
   );
 }
 
