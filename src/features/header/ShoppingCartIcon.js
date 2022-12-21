@@ -1,33 +1,20 @@
-import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
-import styled from "styled-components";
+import IconBadge from "../../ui/base-components/IconBadge";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartItemsQty } from "../cart/cartSlice";
+import routes from "../../core/routes";
 
-const IconBadgeContainer = styled.div`
-  position: relative;
-  display: inline-block;
-  padding: 0.25rem 0.1rem;
-  cursor: pointer;
-`;
-
-const Badge = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: red;
-  width: 0.5rem;
-  height: 0.5rem;
-  font-size: 0.5rem;
-  padding: 0.25rem;
-  color: white;
-  text-align: center;
-  border-radius: 100%;
-`;
-
-function ShoppingCartIcon({ quantity = 0, onClick = () => {} }) {
+function ShoppingCartIcon() {
+  const navigate = useNavigate();
+  const cartItemsQty = useSelector(selectCartItemsQty);
   return (
-    <IconBadgeContainer onClick={onClick}>
-      <MaterialIconButton iconName="shopping_cart" />
-      {quantity > 0 ? <Badge>{quantity}</Badge> : null}
-    </IconBadgeContainer>
+    <IconBadge
+      iconName={"shopping_cart"}
+      badge={cartItemsQty > 0 ? cartItemsQty : null}
+      onClick={() => {
+        navigate(routes.cart);
+      }}
+    />
   );
 }
 
