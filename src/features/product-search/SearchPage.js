@@ -1,10 +1,11 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
-import { useDispatch } from "react-redux";
-import { searchProducts } from "./searchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { searchProducts, selectSearchIsLoading } from "./searchSlice";
 import Spacer from "../../ui/base-components/Spacer";
 import ProductsSection from "./ProductsSection";
 import PaginationControlsSection from "./PaginationControlsSection";
+import Spinner from "../../ui/base-components/Spinner";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -14,6 +15,8 @@ function SearchPage() {
     dispatch(searchProducts(searchQuery));
   }, [searchQuery]);
 
+  const isLoading = useSelector(selectSearchIsLoading);
+  if (isLoading) return <Spinner />;
   return (
     <section>
       <ProductsSection />

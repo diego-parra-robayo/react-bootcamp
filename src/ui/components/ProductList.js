@@ -21,7 +21,7 @@ function ProductList({ title = "", products = [] }) {
   const navigate = useNavigate();
   const navigateToProductDetail = (productId) =>
     navigate(routes.productDetail(productId));
-  if (!products || products.length === 0) return <p>No products to show</p>;
+  if (!products || products.length === 0) return <p>No products were found</p>;
   return (
     <section>
       {title ? <h2>{title}</h2> : null}
