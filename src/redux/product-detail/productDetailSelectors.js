@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { selectCartItems } from "../cart/cartSelectors";
+import { selectCartItems } from "../cart/selectors";
 
 export const selectProductDetailIsLoading = (state) =>
   state.productDetail.isLoading;

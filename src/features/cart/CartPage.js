@@ -4,7 +4,7 @@ import Spacer from "../../ui/base-components/Spacer";
 import CartItemRow from "./CartItemRow";
 import CartItemHeader from "./CartItemHeader";
 import CartSubtotal from "./CartSubtotal";
-import { selectCartItems } from "../../redux/cart/cartSelectors";
+import { selectCartItems } from "../../redux/cart/selectors";
 
 const StyledTable = styled.table`
   table-layout: fixed;

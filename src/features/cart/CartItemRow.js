@@ -1,13 +1,13 @@
 import ItemQuantityControl from "./ItemQuantityControl";
 import { useDispatch } from "react-redux";
-import {
-  cartAddProductQuantity,
-  cartDeleteProduct,
-  cartRemoveProductQuantity,
-} from "../../redux/cart/cartSlice";
 import styled from "styled-components";
 import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
 import { red } from "../../ui/theme/colors";
+import {
+  cartDeleteProduct,
+  cartAddProductQuantity,
+  cartRemoveProductQuantity,
+} from "../../redux/cart/thunks/index";
 
 const StyledRow = styled.tr`
   border-bottom: 1px solid;
