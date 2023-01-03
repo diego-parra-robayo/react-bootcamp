@@ -11,8 +11,8 @@ import ProductDetailSpecsSection from "./ProductDetailSpecsSection";
 import {
   selectProductDetailIsLoading,
   selectProductDetailProduct,
-} from "../../redux/product-detail/productDetailSelectors";
-import { productDetailStarted } from "../../redux/product-detail/productDetailSlice";
+} from "../../redux/product-detail/selectors";
+import { productDetailStarted } from "../../redux/product-detail/thunks";
 
 const ProductDetailContainer = styled.div`
   display: flex;

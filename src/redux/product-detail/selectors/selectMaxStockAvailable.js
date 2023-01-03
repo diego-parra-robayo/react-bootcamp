@@ -1,13 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { selectCartItems } from "../cart/selectors";
+import { selectCartItems } from "../../cart/selectors";
+import selectProductDetailProduct from "./selectProductDetailProduct";
 
-export const selectProductDetailIsLoading = (state) =>
-  state.productDetail.isLoading;
-
-export const selectProductDetailProduct = (state) =>
-  state.productDetail.product;
-
-export const selectMaxStockAvailable = createSelector(
+const selectMaxStockAvailable = createSelector(
   [selectProductDetailProduct, selectCartItems],
   (product, cartItems) => {
     const currentQty =
@@ -16,3 +11,5 @@ export const selectMaxStockAvailable = createSelector(
     return currentQty < stock ? stock - currentQty : 0;
   }
 );
+
+export default selectMaxStockAvailable;

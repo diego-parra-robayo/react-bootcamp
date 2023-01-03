@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { searchSetPage } from "../../redux/search/searchSlice";
 import PaginationControls from "../../ui/components/PaginationControls";
-import {
-  selectSearchPage,
-  selectSearchTotalPages,
-} from "../../redux/search/searchSelectors";
+import selectSearchPage from "../../redux/search/selectors/selectSearchPage";
+import selectSearchTotalPages from "../../redux/search/selectors/selectSearchTotalPages";
+import { searchSetPage } from "../../redux/search/thunks";
 
 function PaginationControlsSection() {
   const page = useSelector(selectSearchPage);

@@ -2,12 +2,12 @@ import Spacer from "../../ui/base-components/Spacer";
 import ViewAllProductsButton from "./ViewAllProductsButton";
 import { useEffect } from "react";
 import CategoriesSection from "./CategoriesSection";
-import { homePageStarted } from "../../redux/home/homeSlice";
 import BannersSection from "./BannersSection";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../ui/base-components/Spinner";
 import ProductsSection from "./ProductsSection";
-import { selectHomeIsLoading } from "../../redux/home/homeSelectors";
+import { selectHomeIsLoading } from "../../redux/home/selectors";
+import { homePageStarted } from "../../redux/home/thunks";
 
 function HomePage() {
   const dispatch = useDispatch();

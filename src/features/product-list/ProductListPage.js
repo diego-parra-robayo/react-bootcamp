@@ -2,15 +2,15 @@ import CategoriesSidePanel from "./CategoriesSidePanel";
 import PaginationControlsSection from "./PaginationControlsSection";
 import Spacer from "../../ui/base-components/Spacer";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  productListStarted,
-  setCategories,
-} from "../../redux/product-list/productsListSlice";
 import Spinner from "../../ui/base-components/Spinner";
 import { useEffect, useMemo } from "react";
 import ProductsSection from "./ProductsSection";
 import { useSearchParams } from "react-router-dom";
-import { selectProductsListIsLoading } from "../../redux/product-list/productListSelectors";
+import {
+  productListStarted,
+  setCategories,
+} from "../../redux/product-list/thunks";
+import { selectProductsListIsLoading } from "../../redux/product-list/selectors";
 
 function ProductListPage() {
   const dispatch = useDispatch();

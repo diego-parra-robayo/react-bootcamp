@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import ProductList from "../../ui/components/ProductList";
-import { selectSearchResults } from "../../redux/search/searchSelectors";
+import selectSearchResults from "../../redux/search/selectors/selectSearchResults";
 
 function ProductsSection() {
   const products = useSelector(selectSearchResults);
