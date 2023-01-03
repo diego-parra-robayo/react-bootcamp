@@ -4,7 +4,7 @@ import {
   cartAddProductQuantity,
   cartDeleteProduct,
   cartRemoveProductQuantity,
-} from "./cartSlice";
+} from "../../redux/cart/cartSlice";
 import styled from "styled-components";
 import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
 import { red } from "../../ui/theme/colors";

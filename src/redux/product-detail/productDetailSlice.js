@@ -1,6 +1,5 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getProduct } from "../../data/productsApi";
-import { selectCartItems } from "../cart/cartSlice";
 
 const initialState = {
   isLoading: false,
@@ -30,21 +29,5 @@ export const productDetailStarted = (productId) => async (dispatch) => {
     console.error(err);
   }
 };
-
-export const selectProductDetailIsLoading = (state) =>
-  state.productDetail.isLoading;
-
-export const selectProductDetailProduct = (state) =>
-  state.productDetail.product;
-
-export const selectMaxStockAvailable = createSelector(
-  [selectProductDetailProduct, selectCartItems],
-  (product, cartItems) => {
-    const currentQty =
-      cartItems.find((item) => item.product.id === product.id)?.quantity ?? 0;
-    const stock = product.data.stock;
-    return currentQty < stock ? stock - currentQty : 0;
-  }
-);
 
 export default productDetailSlice.reducer;

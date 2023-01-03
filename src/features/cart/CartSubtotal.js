@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { cartClear, selectCartTotal } from "./cartSlice";
+import { cartClear } from "../../redux/cart/cartSlice";
 import { colorControl, red } from "../../ui/theme/colors";
 import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
 import { FilledButton } from "../../ui/base-components/Button";
 import { useNavigate } from "react-router-dom";
 import routes from "../../core/routes";
+import { selectCartTotal } from "../../redux/cart/cartSelectors";
 
 const StyledRow = styled.tr`
   background-color: ${colorControl};

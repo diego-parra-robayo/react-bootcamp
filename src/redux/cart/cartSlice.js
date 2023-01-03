@@ -1,7 +1,8 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { showAlert } from "../app/appSlice";
+import { createSlice } from "@reduxjs/toolkit";
+import { showAlert } from "../appSlice";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { selectCartItems, selectItemById } from "./cartSelectors";
 
 const initialState = {
   isLoading: false,
@@ -20,26 +21,6 @@ const cartSlice = createSlice({
 });
 
 const { updateState } = cartSlice.actions;
-
-export const selectCartItems = (state) => state.cart.items;
-
-export const selectCartItemsQty = createSelector(
-  [selectCartItems],
-  (items) => items.length
-);
-
-export const selectCartTotal = createSelector([selectCartItems], (items) =>
-  items.reduce(
-    (accumulator, item) =>
-      accumulator + item.product.data.price * item.quantity,
-    0
-  )
-);
-
-const selectItemById = (productId) =>
-  createSelector([selectCartItems], (items) =>
-    items.find((item) => item.product.id === productId)
-  );
 
 export const cartUpdateQty = (product, quantity) => (dispatch, getState) => {
   dispatch(updateState({ isLoading: true }));

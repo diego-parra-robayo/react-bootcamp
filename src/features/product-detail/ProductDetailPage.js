@@ -1,11 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  productDetailStarted,
-  selectProductDetailIsLoading,
-  selectProductDetailProduct,
-} from "./productDetailSlice";
 import styled from "styled-components";
 import Spinner from "../../ui/base-components/Spinner";
 import Gallery from "./Gallery";
@@ -13,6 +8,11 @@ import AddProductForm from "./AddProductForm";
 import ProductDetailTagsSection from "./ProductDetailTagsSection";
 import ProductDetailTitleSection from "./ProductDetailTitleSection";
 import ProductDetailSpecsSection from "./ProductDetailSpecsSection";
+import {
+  selectProductDetailIsLoading,
+  selectProductDetailProduct,
+} from "../../redux/product-detail/productDetailSelectors";
+import { productDetailStarted } from "../../redux/product-detail/productDetailSlice";
 
 const ProductDetailContainer = styled.div`
   display: flex;

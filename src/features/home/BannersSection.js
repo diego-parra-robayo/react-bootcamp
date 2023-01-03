@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { selectHomeBanners } from "./homeSlice";
 import { createSelector } from "@reduxjs/toolkit";
 import Slideshow from "../../ui/base-components/Slideshow";
+import { selectHomeBanners } from "../../redux/home/homeSelectors";
 
 function BannersSection() {
   const banners = useSelector(

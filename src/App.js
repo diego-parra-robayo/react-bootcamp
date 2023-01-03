@@ -8,7 +8,7 @@ import routes from "./core/routes";
 import SearchPage from "./features/product-search/SearchPage";
 import CartPage from "./features/cart/CartPage";
 import { useDispatch, useSelector } from "react-redux";
-import { alertMessageShown, selectPopUpMessage } from "./features/app/appSlice";
+import { alertMessageShown, selectPopUpMessage } from "./redux/appSlice";
 import { useEffect, useRef } from "react";
 import Snackbar from "./ui/base-components/Snackbar";
 import CheckoutPage from "./features/checkout/CheckoutPage";

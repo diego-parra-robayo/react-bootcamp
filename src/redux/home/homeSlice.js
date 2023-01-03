@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getFeaturedBanners } from "../../data/bannersApi";
 import { getProductCategories } from "../../data/categoriesApi";
 import { getFeaturedProducts } from "../../data/productsApi";
@@ -42,24 +42,5 @@ export const homePageStarted = () => async (dispatch) => {
     console.error(err);
   }
 };
-
-export const selectHomeState = (state) => state.home;
-
-export const selectHomeIsLoading = createSelector(
-  selectHomeState,
-  (state) => state.isLoading ?? false
-);
-export const selectHomeBanners = createSelector(
-  selectHomeState,
-  (state) => state.banners ?? []
-);
-export const selectHomeCategories = createSelector(
-  selectHomeState,
-  (state) => state.categories ?? []
-);
-export const selectHomeProducts = createSelector(
-  selectHomeState,
-  (state) => state.products ?? []
-);
 
 export default homeSlice.reducer;

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { searchProductsRequest } from "../../data/productsApi";
+import { selectSearchQuery } from "./searchSelectors";
 
 const initialState = {
   isLoading: false,
@@ -44,13 +45,5 @@ export const searchProducts =
 
 export const searchSetPage = (page) => async (dispatch, getState) =>
   searchProducts(selectSearchQuery(getState()), page);
-
-export const selectSearchIsLoading = (state) => state.search.isLoading;
-
-const selectSearchQuery = (state) => state.search.query;
-export const selectSearchResults = (state) => state.search.products;
-
-export const selectSearchPage = (state) => state.search.page;
-export const selectSearchTotalPages = (state) => state.search.totalPages;
 
 export default searchSlice.reducer;

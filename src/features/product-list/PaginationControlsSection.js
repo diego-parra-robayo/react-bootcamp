@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
+import { setPage } from "../../redux/product-list/productsListSlice";
+import PaginationControls from "../../ui/components/PaginationControls";
 import {
   selectProductsListPage,
   selectProductsListTotalPages,
-  setPage,
-} from "./productsListSlice";
-import PaginationControls from "../../ui/components/PaginationControls";
+} from "../../redux/product-list/productListSelectors";
 
 function PaginationControlsSection() {
   const page = useSelector(selectProductsListPage);

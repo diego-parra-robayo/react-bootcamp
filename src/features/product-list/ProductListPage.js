@@ -4,13 +4,13 @@ import Spacer from "../../ui/base-components/Spacer";
 import { useDispatch, useSelector } from "react-redux";
 import {
   productListStarted,
-  selectProductsListIsLoading,
   setCategories,
-} from "./productsListSlice";
+} from "../../redux/product-list/productsListSlice";
 import Spinner from "../../ui/base-components/Spinner";
 import { useEffect, useMemo } from "react";
 import ProductsSection from "./ProductsSection";
 import { useSearchParams } from "react-router-dom";
+import { selectProductsListIsLoading } from "../../redux/product-list/productListSelectors";
 
 function ProductListPage() {
   const dispatch = useDispatch();

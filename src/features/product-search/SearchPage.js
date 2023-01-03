@@ -1,11 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchProducts, selectSearchIsLoading } from "./searchSlice";
+import { searchProducts } from "../../redux/search/searchSlice";
 import Spacer from "../../ui/base-components/Spacer";
 import ProductsSection from "./ProductsSection";
 import PaginationControlsSection from "./PaginationControlsSection";
 import Spinner from "../../ui/base-components/Spinner";
+import { selectSearchIsLoading } from "../../redux/search/searchSelectors";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();

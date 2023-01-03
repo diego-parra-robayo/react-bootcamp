@@ -1,8 +1,8 @@
 import IconBadge from "../../ui/base-components/IconBadge";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCartItemsQty } from "../cart/cartSlice";
 import routes from "../../core/routes";
+import { selectCartItemsQty } from "../../redux/cart/cartSelectors";
 
 function ShoppingCartIcon() {
   const navigate = useNavigate();

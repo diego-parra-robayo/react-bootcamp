@@ -1,12 +1,12 @@
 import { OutlinedButton } from "../../ui/base-components/Button";
-import { cartAddProductQuantity } from "../cart/cartSlice";
+import { cartAddProductQuantity } from "../../redux/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import {
   selectMaxStockAvailable,
   selectProductDetailProduct,
-} from "./productDetailSlice";
-import styled from "styled-components";
+} from "../../redux/product-detail/productDetailSelectors";
 
 const StyledForm = styled.form`
   padding: 2rem 0;

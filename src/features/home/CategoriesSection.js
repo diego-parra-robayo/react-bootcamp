@@ -1,9 +1,9 @@
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectHomeCategories } from "./homeSlice";
 import { ChipGroup } from "../../ui/base-components/Chip";
 import { createSelector } from "@reduxjs/toolkit";
 import routes from "../../core/routes";
+import { selectHomeCategories } from "../../redux/home/homeSelectors";
 
 function CategoriesSection() {
   const categories = useSelector(

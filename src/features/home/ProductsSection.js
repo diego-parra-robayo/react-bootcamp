@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectHomeProducts } from "./homeSlice";
 import ProductList from "../../ui/components/ProductList";
+import { selectHomeProducts } from "../../redux/home/homeSelectors";
 
 function ProductsSection() {
   const products = useSelector(selectHomeProducts);
