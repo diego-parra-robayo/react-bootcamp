@@ -1,6 +1,6 @@
-import logo from "../../core/assets/logo.png";
+import logo from "../../resources/images/logo.png";
 import styled from "styled-components";
-import routes from "../../core/routes";
+import routes from "../../utils/routes";
 import { Link } from "react-router-dom";
 
 const StyledImage = styled.img`

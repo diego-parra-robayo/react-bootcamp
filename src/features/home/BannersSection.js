@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
-import Slideshow from "../../ui/base-components/Slideshow";
 import { selectHomeBanners } from "../../redux/home/selectors";
+import Banner from "../../components/Banner/Banner";
 
 function BannersSection() {
   const banners = useSelector(
@@ -15,7 +15,7 @@ function BannersSection() {
         })) ?? []
     )
   );
-  return <Slideshow data={banners} interval={4000} aspectRatio={1440 / 705} />;
+  return <Banner data={banners} interval={4000} aspectRatio={1440 / 705} />;
 }
 
 export default BannersSection;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Center from "../../ui/base-components/Center";
+import Center from "../../components/Center/Center";
 import { Link } from "react-router-dom";
-import routes from "../../core/routes";
+import routes from "../../utils/routes";
 
 const StyledLink = styled(Link)`
   &:link {

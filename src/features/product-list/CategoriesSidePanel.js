@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { ChipGroup } from "../../ui/base-components/Chip";
+import { ChipGroup } from "../../components/Chip/ChipGroup";
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSearchParams } from "react-router-dom";
 import ClearFiltersButton from "./ClearFiltersButton";
-import Spacer from "../../ui/base-components/Spacer";
+import Spacer from "../../components/Spacer/Spacer";
 import { selectProductsListCategories } from "../../redux/product-list/selectors";
 
 const SidePanel = styled.aside`

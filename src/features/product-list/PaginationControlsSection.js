@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import PaginationControls from "../../ui/components/PaginationControls";
+import PaginationControls from "../../components/PaginationControls/PaginationControls";
 import {
   selectProductsListPage,
   selectProductsListTotalPages,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { OutlinedButton } from "../base-components/Button";
+import { OutlinedButton } from "../Button/styles";
 
 const Card = styled.div`
   img {
@@ -15,6 +15,7 @@ const Card = styled.div`
     margin: 0.75rem;
   }
 `;
+
 function ProductListItem({
   id,
   imageUrl,

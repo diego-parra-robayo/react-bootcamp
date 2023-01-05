@@ -1,5 +1,5 @@
 import DeliveryDetailsForm from "./DeliveryDetailsForm";
-import Spacer from "../../ui/base-components/Spacer";
+import Spacer from "../../components/Spacer/Spacer";
 
 function DeliveryDetailsSection() {
   return (

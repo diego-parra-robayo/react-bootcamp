@@ -1,8 +1,8 @@
 import CategoriesSidePanel from "./CategoriesSidePanel";
 import PaginationControlsSection from "./PaginationControlsSection";
-import Spacer from "../../ui/base-components/Spacer";
+import Spacer from "../../components/Spacer/Spacer";
 import { useDispatch, useSelector } from "react-redux";
-import Spinner from "../../ui/base-components/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 import { useEffect, useMemo } from "react";
 import ProductsSection from "./ProductsSection";
 import { useSearchParams } from "react-router-dom";

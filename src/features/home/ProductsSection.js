@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import ProductList from "../../ui/components/ProductList";
+import ProductList from "../../components/ProductList/ProductList";
 import { selectHomeProducts } from "../../redux/home/selectors";
 
 function ProductsSection() {

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { colorPrimary } from "../../ui/theme/colors";
+import colors from "../../resources/colors";
 
 const StyledFooter = styled.footer`
-  background: ${colorPrimary};
+  background: ${colors.colorPrimary};
   padding: 0.5rem;
 
   p {

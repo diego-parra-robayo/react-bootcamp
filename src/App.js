@@ -4,25 +4,13 @@ import HomePage from "./features/home/HomePage";
 import { Route, Routes } from "react-router-dom";
 import ProductListPage from "./features/product-list/ProductListPage";
 import ProductDetailPage from "./features/product-detail/ProductDetailPage";
-import routes from "./core/routes";
+import routes from "./utils/routes";
 import SearchPage from "./features/product-search/SearchPage";
 import CartPage from "./features/cart/CartPage";
-import { useDispatch, useSelector } from "react-redux";
-import { alertMessageShown, selectPopUpMessage } from "./redux/appSlice";
-import { useEffect, useRef } from "react";
-import Snackbar from "./ui/base-components/Snackbar";
 import CheckoutPage from "./features/checkout/CheckoutPage";
+import SnackBar from "./components/SnackBar/SnackBar";
 
 function App() {
-  const snackbarRef = useRef();
-  const popUpMessage = useSelector(selectPopUpMessage);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (popUpMessage != null) {
-      snackbarRef.current.show(popUpMessage);
-      dispatch(alertMessageShown());
-    }
-  }, [popUpMessage]);
   return (
     <div className="app-container">
       <Header />
@@ -40,7 +28,7 @@ function App() {
         <Route path={routes.checkout} element={<CheckoutPage />} />
       </Routes>
       <Footer />
-      <Snackbar ref={snackbarRef} />
+      <SnackBar />
     </div>
   );
 }

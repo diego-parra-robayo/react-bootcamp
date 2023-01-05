@@ -1,4 +1,3 @@
-import { OutlinedButton } from "../../ui/base-components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -7,6 +6,7 @@ import {
   selectMaxStockAvailable,
   selectProductDetailProduct,
 } from "../../redux/product-detail/selectors";
+import { OutlinedButton } from "../../components/Button/styles";
 
 const StyledForm = styled.form`
   padding: 2rem 0;

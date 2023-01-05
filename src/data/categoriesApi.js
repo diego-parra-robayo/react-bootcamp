@@ -1,5 +1,5 @@
 import api from "./api";
-import { defaultLanguage } from "../core/constants";
+import { defaultLanguage } from "../utils/constants";
 
 export const getProductCategories = async (config = {}) => {
   const response = await api.get("/documents/search", {

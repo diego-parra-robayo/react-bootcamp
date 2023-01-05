@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Spacer from "../../ui/base-components/Spacer";
+import Spacer from "../../components/Spacer/Spacer";
 import CartItemRow from "./CartItemRow";
 import CartItemHeader from "./CartItemHeader";
 import CartSubtotal from "./CartSubtotal";

@@ -1,12 +1,5 @@
 import styled from "styled-components";
-import {
-  colorControlActive,
-  colorControlHover,
-  colorOnPrimary,
-  colorPrimary,
-  colorPrimaryActive,
-  colorPrimaryHover,
-} from "../theme/colors";
+import colors from "../../resources/colors";
 
 export const Button = styled.button`
   opacity: 1;
@@ -24,33 +17,33 @@ export const OutlinedButton = styled(Button)`
   padding: 0.5rem 1rem;
 
   &:hover:enabled {
-    background: ${colorControlHover};
+    background: ${colors.colorControlHover};
   }
 
   &:active:enabled {
-    background: ${colorControlActive};
+    background: ${colors.colorControlActive};
   }
 `;
 
 export const FilledButton = styled(Button)`
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  background: ${colorPrimary};
-  color: ${colorOnPrimary};
+  background: ${colors.colorPrimary};
+  color: ${colors.colorOnPrimary};
 
   &:hover:enabled {
-    background: ${colorPrimaryHover};
+    background: ${colors.colorPrimaryHover};
   }
 
   &:active:enabled {
-    background: ${colorPrimaryActive};
+    background: ${colors.colorPrimaryActive};
   }
 `;
 
 export const TextButton = styled(Button)`
   background-color: transparent;
   color: ${({ selected, color }) =>
-    color ? color : selected ? colorPrimary : "#000000"};
+    color ? color : selected ? colors.colorPrimary : "#000000"};
   cursor: ${({ selected, color }) =>
     color ? color : selected ? "default" : "pointer"};
   text-decoration: underline;

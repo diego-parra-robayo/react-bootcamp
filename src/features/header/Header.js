@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Logo from "./Logo";
-import SearchBar from "../../ui/base-components/SearchBar";
-import ShoppingCartIcon from "./ShoppingCartIcon";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import ShoppingCartButton from "../../components/ShoppingCartButton/ShoppingCartButton";
 
 const StyledHeader = styled.header`
   height: 3rem;
@@ -17,7 +17,7 @@ function Header() {
     <StyledHeader>
       <Logo />
       <SearchBar />
-      <ShoppingCartIcon />
+      <ShoppingCartButton />
     </StyledHeader>
   );
 }

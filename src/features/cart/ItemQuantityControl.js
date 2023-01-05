@@ -1,16 +1,22 @@
-import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
 import styled from "styled-components";
+import {
+  Add,
+  Delete,
+  Remove,
+} from "../../../node_modules/@mui/icons-material/index";
+import { IconButton } from "../../../node_modules/@mui/material/index";
 
 const QuantityContainer = styled.div`
   margin: auto;
   display: flex;
   justify-content: center;
+`;
 
-  span {
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: #dadada solid 1px;
-  }
+const QuantitySpan = styled.span`
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: #dadada solid 1px;
+  border-radius: 5px;
 `;
 
 function ItemQuantityControl({
@@ -21,16 +27,16 @@ function ItemQuantityControl({
 }) {
   return (
     <QuantityContainer>
-      <MaterialIconButton
-        iconName={quantity === 1 ? "delete" : "remove"}
-        onClick={onRemovePressed}
-      />
-      <span>{quantity}</span>
-      <MaterialIconButton
-        iconName={"add"}
+      <IconButton onClick={onRemovePressed}>
+        {quantity === 1 ? <Delete /> : <Remove />}
+      </IconButton>
+      <QuantitySpan>{quantity}</QuantitySpan>
+      <IconButton
         onClick={onAddPressed}
         disabled={maxStock ? quantity >= maxStock : false}
-      />
+      >
+        <Add />
+      </IconButton>
     </QuantityContainer>
   );
 }

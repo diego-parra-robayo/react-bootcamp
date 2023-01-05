@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import Center from "../../ui/base-components/Center";
+import Center from "../../components/Center/Center";
 import styled from "styled-components";
 
 const ClearFilterButton = styled.span`

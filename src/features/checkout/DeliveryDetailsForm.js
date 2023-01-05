@@ -1,6 +1,6 @@
-import { FilledButton } from "../../ui/base-components/Button";
 import styled from "styled-components";
 import { useState } from "react";
+import { FilledButton } from "../../components/Button/styles";
 
 const StyledForm = styled.form`
   width: 90%;

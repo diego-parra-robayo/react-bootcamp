@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Spinner from "../../ui/base-components/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 import Gallery from "./Gallery";
 import AddProductForm from "./AddProductForm";
 import ProductDetailTagsSection from "./ProductDetailTagsSection";
@@ -36,6 +36,7 @@ function ProductDetailPage() {
   const product = useSelector(selectProductDetailProduct);
   useEffect(() => {
     if (id) dispatch(productDetailStarted(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   if (isLoading || !product?.id || !product.data) return <Spinner />;

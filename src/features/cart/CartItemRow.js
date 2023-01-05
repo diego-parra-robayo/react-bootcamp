@@ -1,13 +1,14 @@
 import ItemQuantityControl from "./ItemQuantityControl";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
-import { red } from "../../ui/theme/colors";
 import {
   cartDeleteProduct,
   cartAddProductQuantity,
   cartRemoveProductQuantity,
 } from "../../redux/cart/thunks/index";
+import colors from "../../resources/colors";
+import { Delete } from "../../../node_modules/@mui/icons-material/index";
+import { IconButton } from "../../../node_modules/@mui/material/index";
 
 const StyledRow = styled.tr`
   border-bottom: 1px solid;
@@ -38,11 +39,9 @@ function CartItemRow({ item: { product, quantity } }) {
   return (
     <StyledRow>
       <td>
-        <MaterialIconButton
-          iconName={"delete"}
-          color={red}
-          onClick={() => dispatch(cartDeleteProduct(product))}
-        />
+        <IconButton onClick={() => dispatch(cartDeleteProduct(product))}>
+          <Delete sx={{ color: colors.red }} />
+        </IconButton>
       </td>
       <td>
         <img

@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeReducer from "../redux/home/homeSlice";
-import productsReducer from "../redux/product-list/productsListSlice";
-import productDetailReducer from "../redux/product-detail/productDetailSlice";
-import searchReducer from "../redux/search/searchSlice";
-import { persistedCartReducer } from "../redux/cart/cartSlice";
-import appReducer from "../redux/appSlice";
+import homeReducer from "./home/homeSlice";
+import productsReducer from "./product-list/productsListSlice";
+import productDetailReducer from "./product-detail/productDetailSlice";
+import searchReducer from "./search/searchSlice";
+import { persistedCartReducer } from "./cart/cartSlice";
+import appReducer from "./appSlice";
 import {
   FLUSH,
   PAUSE,

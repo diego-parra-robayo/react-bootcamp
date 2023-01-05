@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { colorControl, red } from "../../ui/theme/colors";
-import { MaterialIconButton } from "../../ui/base-components/MaterialIcon";
-import { FilledButton } from "../../ui/base-components/Button";
 import { useNavigate } from "react-router-dom";
-import routes from "../../core/routes";
+import routes from "../../utils/routes";
 import { selectCartTotal } from "../../redux/cart/selectors";
 import { cartClear } from "../../redux/cart/thunks";
+import colors from "../../resources/colors";
+import { FilledButton } from "../../components/Button/styles";
+import { Delete } from "../../../node_modules/@mui/icons-material/index";
+import { IconButton } from "../../../node_modules/@mui/material/index";
 
 const StyledRow = styled.tr`
-  background-color: ${colorControl};
+  background-color: ${colors.colorControl};
 
   td {
     text-align: start;
@@ -34,12 +35,9 @@ function CartSubtotal() {
     <>
       <StyledRow>
         <td>
-          <MaterialIconButton
-            iconName={"delete"}
-            title="Empty cart"
-            color={red}
-            onClick={() => dispatch(cartClear())}
-          />
+          <IconButton onClick={() => dispatch(cartClear())} title="Clear cart">
+            <Delete sx={{ color: colors.red }} />
+          </IconButton>
         </td>
         <td />
         <td />

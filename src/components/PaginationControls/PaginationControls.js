@@ -1,18 +1,30 @@
 import styled from "styled-components";
-import { colorPrimary } from "../theme/colors";
-import { MaterialIconButton } from "../base-components/MaterialIcon";
-import { range } from "../../core/utils/listUtils";
+import {
+  ArrowBackIos,
+  ArrowForwardIos,
+} from "../../../node_modules/@mui/icons-material/index";
+import { range } from "../../utils/functions/listExtensions";
+import colors from "../../resources/colors";
+import { Button } from "../Button/styles";
 
-const ControlsContainer = styled.div`
+const PaginationControlsContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
   margin: 0 auto;
 `;
 
-const PageNumberButton = styled.span`
-  color: ${({ selected }) => (selected ? colorPrimary : "#000000")};
+const PaginationControl = styled(Button)`
+  color: ${({ disabled, selected }) =>
+    disabled ? null : selected ? colors.colorPrimary : "#000000"};
   cursor: ${({ selected }) => (selected ? "default" : "pointer")};
+  background-color: transparent;
+  border: 0;
+  font-size: 1rem;
+`;
+
+const PageNumberButton = styled(PaginationControl)`
   text-decoration: underline;
 `;
 
@@ -23,12 +35,13 @@ function PaginationControls({ page, totalPages, onPageClick }) {
   };
   if (page <= 0 || page > totalPages || totalPages <= 1) return null;
   return (
-    <ControlsContainer>
-      <MaterialIconButton
-        iconName="arrow_back_ios"
+    <PaginationControlsContainer>
+      <PaginationControl
         disabled={page === 1}
         onClick={() => safeOnPageClick(page - 1)}
-      />
+      >
+        <ArrowBackIos />
+      </PaginationControl>
       {range(1, totalPages).map((pageNumber) => (
         <PageNumberButton
           key={pageNumber}
@@ -38,12 +51,13 @@ function PaginationControls({ page, totalPages, onPageClick }) {
           {pageNumber}
         </PageNumberButton>
       ))}
-      <MaterialIconButton
-        iconName="arrow_forward_ios"
+      <PaginationControl
         disabled={page === totalPages}
         onClick={() => safeOnPageClick(page + 1)}
-      />
-    </ControlsContainer>
+      >
+        <ArrowForwardIos />
+      </PaginationControl>
+    </PaginationControlsContainer>
   );
 }
 

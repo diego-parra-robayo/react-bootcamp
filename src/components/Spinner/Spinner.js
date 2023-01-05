@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { colorControl, colorPrimary } from "../theme/colors";
-import spinAnimation from "../animations/spinAnimation";
+import colors from "../../resources/colors";
+import { spinAnimation } from "../../resources/animations";
 
 const Spinner = styled.div`
   margin: auto;
-  border: 0.5rem solid ${colorControl};
-  border-top: 0.5rem solid ${colorPrimary};
+  border: 0.5rem solid ${colors.colorControl};
+  border-top: 0.5rem solid ${colors.colorPrimary};
   border-radius: 50%;
   width: 2rem;
   height: 2rem;

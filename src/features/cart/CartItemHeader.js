@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { colorControl } from "../../ui/theme/colors";
+import colors from "../../resources/colors";
 
 const StyledHeader = styled.tr`
-  background-color: ${colorControl};
+  background-color: ${colors.colorControl};
   border-bottom: 1px solid;
   align-items: center;
 
