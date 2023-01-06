@@ -27,7 +27,7 @@ function AddProductForm() {
 
   useEffect(() => {
     if (quantity > maxStockAvailable) setQuantity(maxStockAvailable);
-  }, [maxStockAvailable]);
+  }, [quantity, maxStockAvailable]);
 
   function setQuantitySafe(newValue) {
     if (newValue <= 0) {

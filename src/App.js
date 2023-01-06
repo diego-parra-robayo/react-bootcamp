@@ -1,13 +1,13 @@
-import Header from "./features/header/Header";
-import Footer from "./features/footer/Footer";
-import HomePage from "./features/home/HomePage";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./pages/home/HomePage";
 import { Route, Routes } from "react-router-dom";
-import ProductListPage from "./features/product-list/ProductListPage";
-import ProductDetailPage from "./features/product-detail/ProductDetailPage";
+import ProductListPage from "./pages/product-list/ProductListPage";
+import ProductDetailPage from "./pages/product-detail/ProductDetailPage";
 import routes from "./utils/routes";
-import SearchPage from "./features/product-search/SearchPage";
-import CartPage from "./features/cart/CartPage";
-import CheckoutPage from "./features/checkout/CheckoutPage";
+import SearchPage from "./pages/product-search/SearchPage";
+import CartPage from "./pages/cart/CartPage";
+import CheckoutPage from "./pages/checkout/CheckoutPage";
 import SnackBar from "./components/SnackBar/SnackBar";
 
 function App() {

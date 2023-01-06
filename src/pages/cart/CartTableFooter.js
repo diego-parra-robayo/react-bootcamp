@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import routes from "../../utils/routes";
@@ -8,32 +7,15 @@ import colors from "../../resources/colors";
 import { FilledButton } from "../../components/Button/styles";
 import { Delete } from "../../../node_modules/@mui/icons-material/index";
 import { IconButton } from "../../../node_modules/@mui/material/index";
+import { StyledFooter } from "./styles";
 
-const StyledRow = styled.tr`
-  background-color: ${colors.colorControl};
-
-  td {
-    text-align: start;
-    padding: 0.5rem 1rem;
-  }
-
-  td:first-child {
-    text-align: start;
-    padding: 0.5rem 0;
-  }
-  td:last-child {
-    text-align: end;
-    padding: 0.5rem 1rem;
-  }
-`;
-
-function CartSubtotal() {
+function CartTableFooter() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartTotal = useSelector(selectCartTotal);
   return (
-    <>
-      <StyledRow>
+    <StyledFooter>
+      <tr>
         <td>
           <IconButton onClick={() => dispatch(cartClear())} title="Clear cart">
             <Delete sx={{ color: colors.red }} />
@@ -47,16 +29,16 @@ function CartSubtotal() {
         <td>
           <h3>$ {cartTotal}</h3>
         </td>
-      </StyledRow>
-      <StyledRow>
+      </tr>
+      <tr>
         <td colSpan={5}>
           <FilledButton onClick={() => navigate(routes.checkout)}>
             Proceed to pay
           </FilledButton>
         </td>
-      </StyledRow>
-    </>
+      </tr>
+    </StyledFooter>
   );
 }
 
-export default CartSubtotal;
+export default CartTableFooter;

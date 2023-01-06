@@ -1,6 +1,4 @@
 import CategoriesSidePanel from "./CategoriesSidePanel";
-import PaginationControlsSection from "./PaginationControlsSection";
-import Spacer from "../../components/Spacer/Spacer";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import { useEffect, useMemo } from "react";
@@ -22,9 +20,11 @@ function ProductListPage() {
 
   useEffect(() => {
     dispatch(productListStarted());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     dispatch(setCategories(categories));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories]);
 
   const isLoading = useSelector(selectProductsListIsLoading);
@@ -32,11 +32,7 @@ function ProductListPage() {
   return (
     <main>
       <CategoriesSidePanel />
-      <section>
-        <ProductsSection />
-        <Spacer height={"2rem"} />
-        <PaginationControlsSection />
-      </section>
+      <ProductsSection />
     </main>
   );
 }

@@ -19,7 +19,7 @@ const QuantitySpan = styled.span`
   border-radius: 5px;
 `;
 
-function ItemQuantityControl({
+function QuantityControl({
   quantity,
   maxStock,
   onAddPressed,
@@ -41,4 +41,4 @@ function ItemQuantityControl({
   );
 }
 
-export default ItemQuantityControl;
+export default QuantityControl;

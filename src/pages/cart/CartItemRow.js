@@ -1,6 +1,5 @@
-import ItemQuantityControl from "./ItemQuantityControl";
+import QuantityControl from "../../components/QuantityControl/QuantityControl";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 import {
   cartDeleteProduct,
   cartAddProductQuantity,
@@ -9,30 +8,7 @@ import {
 import colors from "../../resources/colors";
 import { Delete } from "../../../node_modules/@mui/icons-material/index";
 import { IconButton } from "../../../node_modules/@mui/material/index";
-
-const StyledRow = styled.tr`
-  border-bottom: 1px solid;
-  align-items: center;
-
-  td {
-    padding: 0 2rem;
-    text-align: center;
-  }
-  td:nth-child(3) {
-    text-align: start;
-  }
-  td:nth-child(1) {
-    padding: 0;
-  }
-  td:last-child {
-    text-align: end;
-    padding: 0 1rem;
-  }
-
-  img {
-    width: 100%;
-  }
-`;
+import { StyledRow } from "./styles";
 
 function CartItemRow({ item: { product, quantity } }) {
   const dispatch = useDispatch();
@@ -58,7 +34,7 @@ function CartItemRow({ item: { product, quantity } }) {
         </h5>
       </td>
       <td>
-        <ItemQuantityControl
+        <QuantityControl
           quantity={quantity}
           maxStock={product.data.stock}
           onAddPressed={() => dispatch(cartAddProductQuantity(product))}

@@ -1,5 +1,5 @@
 import { getProduct } from "../../../data/productsApi";
-import { updateState } from "../../cart/cartSlice";
+import { updateState } from "../productDetailSlice";
 
 const productDetailStarted = (productId) => async (dispatch) => {
   dispatch(updateState({ isLoading: true }));

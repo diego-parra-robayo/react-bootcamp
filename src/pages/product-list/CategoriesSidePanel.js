@@ -1,18 +1,25 @@
-import styled from "styled-components";
 import { ChipGroup } from "../../components/Chip/ChipGroup";
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSearchParams } from "react-router-dom";
-import ClearFiltersButton from "./ClearFiltersButton";
 import Spacer from "../../components/Spacer/Spacer";
 import { selectProductsListCategories } from "../../redux/product-list/selectors";
-
-const SidePanel = styled.aside`
-  border-right: thin gray solid;
-  padding-right: 2rem;
-`;
+import Center from "../../components/Center/Center";
+import { TextButtonUnderlined } from "../../components/Button/styles";
 
 function CategoriesSidePanel() {
+  return (
+    <aside>
+      <h4>Categories</h4>
+      <Categories />
+      <Spacer height={"2rem"} />
+      <ClearFiltersButton />
+      <Spacer height={"2rem"} />
+    </aside>
+  );
+}
+
+function Categories() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categories = useSelector(
     createSelector(
@@ -39,14 +46,25 @@ function CategoriesSidePanel() {
     setSearchParams(searchParams);
   };
 
+  return <ChipGroup data={categories} onItemSelected={onCategorySelected} />;
+}
+
+function ClearFiltersButton() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const onClearClick = () => {
+    searchParams.delete("category");
+    setSearchParams(searchParams);
+  };
+  const categories = searchParams.getAll("category");
+  if (!categories || categories.length === 0) {
+    return null;
+  }
   return (
-    <SidePanel>
-      <h4>Categories</h4>
-      <ChipGroup data={categories} onItemSelected={onCategorySelected} />
-      <Spacer height={"2rem"} />
-      <ClearFiltersButton />
-      <Spacer height={"2rem"} />
-    </SidePanel>
+    <Center>
+      <TextButtonUnderlined onClick={onClearClick}>
+        Clear filters
+      </TextButtonUnderlined>
+    </Center>
   );
 }
 

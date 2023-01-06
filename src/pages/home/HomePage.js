@@ -1,5 +1,4 @@
 import Spacer from "../../components/Spacer/Spacer";
-import ViewAllProductsButton from "./ViewAllProductsButton";
 import { useEffect } from "react";
 import CategoriesSection from "./CategoriesSection";
 import BannersSection from "./BannersSection";
@@ -13,6 +12,7 @@ function HomePage() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(homePageStarted());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const isLoading = useSelector(selectHomeIsLoading);
 
@@ -24,8 +24,6 @@ function HomePage() {
       <CategoriesSection />
       <Spacer height="4rem" />
       <ProductsSection />
-      <Spacer height="4rem" />
-      <ViewAllProductsButton />
     </section>
   );
 }

@@ -30,6 +30,8 @@ body {
     margin-right: 2rem;
     flex-basis: 20vw;
     flex-grow: 2;
+    border-right: thin gray solid;
+    padding-right: 2rem;
 }
 
 .app-container footer {

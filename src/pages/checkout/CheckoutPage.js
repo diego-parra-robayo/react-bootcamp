@@ -1,6 +1,6 @@
-import DeliveryDetailsSection from "./DeliveryDetailsSection";
-import OrderDetailsSection from "./OrderDetailsSection";
 import styled from "styled-components";
+import DeliveryDetailsForm from "./DeliveryDetailsForm";
+import Spacer from "../../components/Spacer/Spacer";
 
 const StyledMain = styled.main`
   display: flex;
@@ -18,8 +18,14 @@ const StyledMain = styled.main`
 function CheckoutPage() {
   return (
     <StyledMain>
-      <DeliveryDetailsSection />
-      <OrderDetailsSection />
+      <section>
+        <h2>Delivery Details</h2>
+        <Spacer height={"2rem"} />
+        <DeliveryDetailsForm />
+      </section>
+      <section>
+        <h2>Order Details</h2>
+      </section>
     </StyledMain>
   );
 }

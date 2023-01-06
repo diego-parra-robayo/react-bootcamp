@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import SearchBar from "../SearchBar/SearchBar";
+import ShoppingCartButton from "../ShoppingCartButton/ShoppingCartButton";
 import Logo from "./Logo";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import ShoppingCartButton from "../../components/ShoppingCartButton/ShoppingCartButton";
 
 const StyledHeader = styled.header`
   height: 3rem;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   border-bottom: thin solid gray;
   display: flex;
   align-items: center;

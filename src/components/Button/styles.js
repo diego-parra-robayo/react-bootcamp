@@ -50,3 +50,7 @@ export const TextButton = styled(Button)`
   font-size: 1rem;
   border: none;
 `;
+
+export const TextButtonUnderlined = styled(TextButton)`
+  text-decoration: underline;
+`;

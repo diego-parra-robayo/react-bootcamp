@@ -4,12 +4,12 @@ import { API_BASE_URL, API_REF_KEY } from "../utils/constants";
 export const getApiRefRemote = async () => {
   const response = await axios.get(API_BASE_URL);
   const { refs: [{ ref } = {}] = [] } = response.data;
-  await localStorage.setItem(API_REF_KEY, ref);
+  localStorage.setItem(API_REF_KEY, ref);
   return ref;
 };
 
-export const storeLocalApiRef = async (ref) => {
-  await localStorage.setItem(API_REF_KEY, ref);
+export const storeLocalApiRef = (ref) => {
+  localStorage.setItem(API_REF_KEY, ref);
 };
 
 export const retrieveLocalApiRef = () => {
