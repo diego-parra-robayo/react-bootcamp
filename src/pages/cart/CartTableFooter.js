@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import routes from "../../utils/routes";
-import { selectCartTotal } from "../../redux/cart/selectors";
-import { cartClear } from "../../redux/cart/thunks";
 import colors from "../../resources/colors";
 import { FilledButton } from "../../components/Button/styles";
 import { Delete } from "../../../node_modules/@mui/icons-material/index";
 import { IconButton } from "../../../node_modules/@mui/material/index";
 import { StyledFooter } from "./styles";
+import { selectCartTotal } from "../../redux/cart/cartSelectors";
+import { clearCart } from "../../redux/cart/cartThunks";
 
 function CartTableFooter() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function CartTableFooter() {
     <StyledFooter>
       <tr>
         <td>
-          <IconButton onClick={() => dispatch(cartClear())} title="Clear cart">
+          <IconButton onClick={() => dispatch(clearCart())} title="Clear cart">
             <Delete sx={{ color: colors.red }} />
           </IconButton>
         </td>

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import CartItemRow from "./CartItemRow";
-import { selectCartItems } from "../../redux/cart/selectors";
 import { StyledHeader, StyledTable } from "./styles";
 import CartTableFooter from "./CartTableFooter";
+import { selectCartItems } from "../../redux/cart/cartSelectors";
 
 function CartPage() {
   const items = useSelector(selectCartItems);

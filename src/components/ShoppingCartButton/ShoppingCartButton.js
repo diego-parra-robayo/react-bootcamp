@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { ShoppingCart } from "../../../node_modules/@mui/icons-material/index";
 import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
+import { selectCartQuantity } from "../../redux/cart/cartSelectors";
 import routes from "../../utils/routes";
-import selectCartItemsQty from "../../redux/cart/selectors/selectCartItemsQty";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -28,7 +28,7 @@ const StyledBadge = styled.div`
 
 function ShoppingCartButton() {
   const navigate = useNavigate();
-  const cartItemsQty = useSelector(selectCartItemsQty);
+  const cartItemsQty = useSelector(selectCartQuantity);
   return (
     <StyledContainer onClick={() => navigate(routes.cart)}>
       <ShoppingCart sx={{ padding: "0.25rem" }} />

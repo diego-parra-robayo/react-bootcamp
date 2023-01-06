@@ -1,21 +1,21 @@
 import QuantityControl from "../../components/QuantityControl/QuantityControl";
 import { useDispatch } from "react-redux";
-import {
-  cartDeleteProduct,
-  cartAddProductQuantity,
-  cartRemoveProductQuantity,
-} from "../../redux/cart/thunks/index";
 import colors from "../../resources/colors";
 import { Delete } from "../../../node_modules/@mui/icons-material/index";
 import { IconButton } from "../../../node_modules/@mui/material/index";
 import { StyledRow } from "./styles";
+import {
+  addProductQuantityInCart,
+  deleteProductFromCart,
+  removeProductQuantityInCart,
+} from "../../redux/cart/cartThunks";
 
 function CartItemRow({ item: { product, quantity } }) {
   const dispatch = useDispatch();
   return (
     <StyledRow>
       <td>
-        <IconButton onClick={() => dispatch(cartDeleteProduct(product))}>
+        <IconButton onClick={() => dispatch(deleteProductFromCart(product))}>
           <Delete sx={{ color: colors.red }} />
         </IconButton>
       </td>
@@ -37,8 +37,8 @@ function CartItemRow({ item: { product, quantity } }) {
         <QuantityControl
           quantity={quantity}
           maxStock={product.data.stock}
-          onAddPressed={() => dispatch(cartAddProductQuantity(product))}
-          onRemovePressed={() => dispatch(cartRemoveProductQuantity(product))}
+          onAddPressed={() => dispatch(addProductQuantityInCart(product))}
+          onRemovePressed={() => dispatch(removeProductQuantityInCart(product))}
         />
       </td>
       <td>$ {product.data.price * quantity}</td>

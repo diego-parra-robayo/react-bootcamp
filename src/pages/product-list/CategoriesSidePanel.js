@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSearchParams } from "react-router-dom";
 import Spacer from "../../components/Spacer/Spacer";
-import { selectProductsListCategories } from "../../redux/product-list/selectors";
 import Center from "../../components/Center/Center";
 import { TextButtonUnderlined } from "../../components/Button/styles";
+import { selectProductsListCategories } from "../../redux/product-list/productListSelectors";
 
 function CategoriesSidePanel() {
   return (

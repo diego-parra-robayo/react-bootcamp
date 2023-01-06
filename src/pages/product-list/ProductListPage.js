@@ -4,11 +4,11 @@ import Spinner from "../../components/Spinner/Spinner";
 import { useEffect, useMemo } from "react";
 import ProductsSection from "./ProductsSection";
 import { useSearchParams } from "react-router-dom";
+import { selectProductsListIsLoading } from "../../redux/product-list/productListSelectors";
 import {
-  productListStarted,
-  setCategories,
-} from "../../redux/product-list/thunks";
-import { selectProductsListIsLoading } from "../../redux/product-list/selectors";
+  updateSelectedCategories,
+  startProductsListPage,
+} from "../../redux/product-list/productListThunks";
 
 function ProductListPage() {
   const dispatch = useDispatch();
@@ -19,11 +19,11 @@ function ProductListPage() {
   );
 
   useEffect(() => {
-    dispatch(productListStarted());
+    dispatch(startProductsListPage());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    dispatch(setCategories(categories));
+    dispatch(updateSelectedCategories(categories));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories]);
 

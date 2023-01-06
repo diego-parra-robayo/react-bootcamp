@@ -12,12 +12,12 @@ const homeSlice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    updateState: (state, action) => {
+    updateHomeState: (state, action) => {
       return { ...state, ...action.payload };
     },
   },
 });
 
-export const { updateState } = homeSlice.actions;
+export const { updateHomeState } = homeSlice.actions;
 
 export default homeSlice.reducer;

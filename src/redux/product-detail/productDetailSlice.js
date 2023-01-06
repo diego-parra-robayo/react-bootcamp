@@ -10,12 +10,12 @@ const productDetailSlice = createSlice({
   name: "productDetails",
   initialState,
   reducers: {
-    updateState: (state, action) => {
+    updateProductDetailState: (state, action) => {
       return { ...state, ...action.payload };
     },
   },
 });
 
-export const { updateState } = productDetailSlice.actions;
+export const { updateProductDetailState } = productDetailSlice.actions;
 
 export default productDetailSlice.reducer;

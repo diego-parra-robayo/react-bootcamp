@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import AddProductForm from "./AddProductForm";
 import {
-  selectProductDetailIsLoading,
-  selectProductDetailProduct,
-} from "../../redux/product-detail/selectors";
-import { productDetailStarted } from "../../redux/product-detail/thunks";
-import {
   ProductDetailContainer,
   SpecsContainer,
   TagsContainer,
   TitleContainer,
 } from "./styles";
 import Banner from "../../components/Banner/Banner";
+import {
+  selectProductDetailIsLoading,
+  selectProductDetailProduct,
+} from "../../redux/product-detail/productDetailSelectors";
+import { startProductDetailPage } from "../../redux/product-detail/productDetailThunks";
 
 function ProductDetailPage() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ function ProductDetailPage() {
   const isLoading = useSelector(selectProductDetailIsLoading);
   const product = useSelector(selectProductDetailProduct);
   useEffect(() => {
-    if (id) dispatch(productDetailStarted(id));
+    if (id) dispatch(startProductDetailPage(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 

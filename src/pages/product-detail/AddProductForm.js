@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { cartAddProductQuantity } from "../../redux/cart/thunks";
+import { OutlinedButton } from "../../components/Button/styles";
+import { addProductQuantityInCart } from "../../redux/cart/cartThunks";
 import {
   selectMaxStockAvailable,
   selectProductDetailProduct,
-} from "../../redux/product-detail/selectors";
-import { OutlinedButton } from "../../components/Button/styles";
+} from "../../redux/product-detail/productDetailSelectors";
 
 const StyledForm = styled.form`
   padding: 2rem 0;
@@ -42,7 +42,7 @@ function AddProductForm() {
   function onSubmit(e) {
     e.preventDefault();
     dispatch(
-      cartAddProductQuantity(product, quantity, { showAddedMessage: true })
+      addProductQuantityInCart(product, quantity, { showAddedMessage: true })
     );
     setQuantitySafe(initialQty);
   }

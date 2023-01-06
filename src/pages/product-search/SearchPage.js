@@ -3,14 +3,15 @@ import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Spacer from "../../components/Spacer/Spacer";
 import Spinner from "../../components/Spinner/Spinner";
-import { searchProducts } from "../../redux/search/thunks";
-import selectSearchIsLoading from "../../redux/search/selectors/selectSearchIsLoading";
-import selectSearchPage from "../../redux/search/selectors/selectSearchPage";
-import selectSearchTotalPages from "../../redux/search/selectors/selectSearchTotalPages";
-import selectSearchResults from "../../redux/search/selectors/selectSearchResults";
 import ProductList from "../../components/ProductList/ProductList";
 import PaginationControls from "../../components/PaginationControls/PaginationControls";
-import searchSetPage from "../../redux/search/thunks/searchSetPage";
+import {
+  selectSearchIsLoading,
+  selectSearchPage,
+  selectSearchResults,
+  selectSearchTotalPages,
+} from "../../redux/search/searchSelectors";
+import { searchProducts, searchSetPage } from "../../redux/search/searchThunks";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();

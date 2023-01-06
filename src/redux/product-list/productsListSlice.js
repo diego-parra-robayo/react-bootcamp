@@ -14,12 +14,12 @@ const productsListSlice = createSlice({
   name: "productsList",
   initialState,
   reducers: {
-    updateState: (state, action) => {
+    updateProductListState: (state, action) => {
       return { ...state, ...action.payload };
     },
   },
 });
 
-export const { updateState } = productsListSlice.actions;
+export const { updateProductListState } = productsListSlice.actions;
 
 export default productsListSlice.reducer;

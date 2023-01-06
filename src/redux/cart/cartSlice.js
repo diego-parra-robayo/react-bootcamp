@@ -12,13 +12,13 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    updateState: (state, action) => {
+    updateCartState: (state, action) => {
       return { ...state, ...action.payload };
     },
   },
 });
 
-export const { updateState } = cartSlice.actions;
+export const { updateCartState } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
 

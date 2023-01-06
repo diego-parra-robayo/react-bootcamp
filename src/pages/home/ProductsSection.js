@@ -4,7 +4,7 @@ import { Link } from "../../../node_modules/@mui/icons-material/index";
 import Center from "../../components/Center/Center";
 import ProductList from "../../components/ProductList/ProductList";
 import Spacer from "../../components/Spacer/Spacer";
-import { selectHomeProducts } from "../../redux/home/selectors";
+import { selectHomeProducts } from "../../redux/home/homeSelectors";
 import routes from "../../utils/routes";
 
 const StyledLink = styled(Link)`

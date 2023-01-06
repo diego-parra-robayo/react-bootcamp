@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import PaginationControls from "../../components/PaginationControls/PaginationControls";
 import ProductList from "../../components/ProductList/ProductList";
 import Spacer from "../../components/Spacer/Spacer";
-import { selectProductsListFilteredProds } from "../../redux/product-list/selectors";
-import selectProductsListPage from "../../redux/product-list/selectors/selectProductsListPage";
-import selectProductsListTotalPages from "../../redux/product-list/selectors/selectProductsListTotalPages";
-import setPage from "../../redux/product-list/thunks/setPage";
+import {
+  selectProductsListFilteredProds,
+  selectProductsListPage,
+  selectProductsListTotalPages,
+} from "../../redux/product-list/productListSelectors";
+import { updateProductListPage } from "../../redux/product-list/productListThunks";
 
 function ProductsSection() {
   const products = useSelector(selectProductsListFilteredProds);
@@ -20,7 +22,7 @@ function ProductsSection() {
       <PaginationControls
         page={page}
         totalPages={totalPages}
-        onPageClick={(page) => dispatch(setPage(page))}
+        onPageClick={(page) => dispatch(updateProductListPage(page))}
       />
     </section>
   );

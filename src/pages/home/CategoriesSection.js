@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { ChipGroup } from "../../components/Chip/ChipGroup";
 import { createSelector } from "@reduxjs/toolkit";
 import routes from "../../utils/routes";
-import { selectHomeCategories } from "../../redux/home/selectors";
+import { selectHomeCategories } from "../../redux/home/homeSelectors";
 
 function CategoriesSection() {
   const categories = useSelector(
