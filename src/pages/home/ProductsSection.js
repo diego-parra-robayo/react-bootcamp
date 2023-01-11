@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { Link } from "../../../node_modules/@mui/icons-material/index";
+import { Link } from "@mui/icons-material";
 import Center from "../../components/Center/Center";
 import ProductList from "../../components/ProductList/ProductList";
 import Spacer from "../../components/Spacer/Spacer";

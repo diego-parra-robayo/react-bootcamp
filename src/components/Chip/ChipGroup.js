@@ -4,7 +4,7 @@ import Chip from "./Chip";
 const ChipGroupContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: {(props)= > props.direction || "row"};
+  flex-direction: { (props) => props.direction || "row"};
   gap: 0.9rem;
 `;
 

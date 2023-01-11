@@ -1,8 +1,8 @@
 import QuantityControl from "../../components/QuantityControl/QuantityControl";
 import { useDispatch } from "react-redux";
 import colors from "../../resources/colors";
-import { Delete } from "../../../node_modules/@mui/icons-material/index";
-import { IconButton } from "../../../node_modules/@mui/material/index";
+import { Delete } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 import { StyledRow } from "./styles";
 import {
   addProductQuantityInCart,

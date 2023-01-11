@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import {
-  Add,
-  Delete,
-  Remove,
-} from "../../../node_modules/@mui/icons-material/index";
-import { IconButton } from "../../../node_modules/@mui/material/index";
+import { Add, Delete, Remove } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 
 const QuantityContainer = styled.div`
   margin: auto;
@@ -27,11 +23,12 @@ function QuantityControl({
 }) {
   return (
     <QuantityContainer>
-      <IconButton onClick={onRemovePressed}>
+      <IconButton title="Remove" onClick={onRemovePressed}>
         {quantity === 1 ? <Delete /> : <Remove />}
       </IconButton>
       <QuantitySpan>{quantity}</QuantitySpan>
       <IconButton
+        title="Add"
         onClick={onAddPressed}
         disabled={maxStock ? quantity >= maxStock : false}
       >

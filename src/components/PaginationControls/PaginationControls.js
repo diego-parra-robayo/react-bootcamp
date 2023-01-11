@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import {
-  ArrowBackIos,
-  ArrowForwardIos,
-} from "../../../node_modules/@mui/icons-material/index";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { range } from "../../utils/functions/listExtensions";
 import colors from "../../resources/colors";
 import { Button } from "../Button/styles";
@@ -37,6 +34,7 @@ function PaginationControls({ page, totalPages, onPageClick }) {
   return (
     <PaginationControlsContainer>
       <PaginationControl
+        title="Previous"
         disabled={page === 1}
         onClick={() => safeOnPageClick(page - 1)}
       >
@@ -52,6 +50,7 @@ function PaginationControls({ page, totalPages, onPageClick }) {
         </PageNumberButton>
       ))}
       <PaginationControl
+        title="Next"
         disabled={page === totalPages}
         onClick={() => safeOnPageClick(page + 1)}
       >

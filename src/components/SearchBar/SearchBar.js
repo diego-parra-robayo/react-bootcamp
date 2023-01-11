@@ -6,7 +6,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
-import { Search } from "../../../node_modules/@mui/icons-material/index";
+import { Search } from "@mui/icons-material";
 import {
   StyledSearchButton,
   StyledSearchForm,

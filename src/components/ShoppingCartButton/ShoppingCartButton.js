@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { ShoppingCart } from "../../../node_modules/@mui/icons-material/index";
-import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
+import { ShoppingCart } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 import { selectCartQuantity } from "../../redux/cart/cartSelectors";
 import routes from "../../utils/routes";
 

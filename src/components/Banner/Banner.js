@@ -1,7 +1,4 @@
-import {
-  ArrowBackIos,
-  ArrowForwardIos,
-} from "../../../node_modules/@mui/icons-material/index";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import {
   BannerContainer,
   BannerControlNext,
@@ -24,11 +21,11 @@ function Banner({ data = [], interval = 4000, aspectRatio }) {
   return (
     <section>
       <BannerContainer interval={interval} aspectRatio={aspectRatio}>
-        <BannerControlPrev onClick={setPrevious}>
+        <BannerControlPrev title="Back" onClick={setPrevious}>
           <ArrowBackIos />
         </BannerControlPrev>
         <BannerImage key={banner.id} src={banner.src} alt={banner.alt} />
-        <BannerControlNext className="next" onClick={setNext}>
+        <BannerControlNext title="Next" onClick={setNext}>
           <ArrowForwardIos />
         </BannerControlNext>
       </BannerContainer>

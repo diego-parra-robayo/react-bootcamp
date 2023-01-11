@@ -1,4 +1,4 @@
-import { createSelector } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { createSelector } from "@reduxjs/toolkit";
 import { selectCartItems } from "../cart/cartSelectors";
 
 export const selectProductDetailIsLoading = (state) =>

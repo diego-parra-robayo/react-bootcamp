@@ -1,4 +1,4 @@
-import { createSelector } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { createSelector } from "@reduxjs/toolkit";
 
 const selectHomeState = (state) => state.home;
 

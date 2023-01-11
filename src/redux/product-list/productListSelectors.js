@@ -1,4 +1,4 @@
-import { createSelector } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { createSelector } from "@reduxjs/toolkit";
 
 export const selectProductsListIsLoading = (state) =>
   state.productsList.isLoading;
