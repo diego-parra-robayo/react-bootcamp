@@ -40,6 +40,18 @@ export const FilledButton = styled(Button)`
   }
 `;
 
+export const FilledButtonSecondary = styled(FilledButton)`
+  background-color: white;
+  color: black;
+  &:hover:enabled {
+    background: ${colors.colorControl};
+  }
+
+  &:active:enabled {
+    background: ${colors.colorControlActive};
+  }
+`;
+
 export const TextButton = styled(Button)`
   background-color: transparent;
   color: ${({ selected, color }) =>

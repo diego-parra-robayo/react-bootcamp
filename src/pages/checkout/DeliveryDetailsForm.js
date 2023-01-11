@@ -1,33 +1,12 @@
-import styled from "styled-components";
 import { useState } from "react";
-import { FilledButton } from "../../components/Button/styles";
+import {
+  FilledButton,
+  FilledButtonSecondary,
+} from "../../components/Button/styles";
+import Spacer from "../../components/Spacer/Spacer";
+import { StyledForm } from "./styles";
 
-const StyledForm = styled.form`
-  width: 90%;
-  div {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem 1rem;
-  }
-  label {
-    width: 30%;
-    margin-right: 1rem;
-  }
-  input,
-  textarea {
-    width: 70%;
-    resize: none;
-    padding: 0.4rem;
-    border: lightgray solid thin;
-    border-radius: 2px;
-  }
-  div:last-child {
-    justify-content: center;
-    margin: 2rem 0;
-  }
-`;
-
-function DeliveryDetailsForm() {
+function DeliveryDetailsForm({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,8 +20,9 @@ function DeliveryDetailsForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("formData: ", formData);
+    onSubmit(formData);
   };
+  const handleCancel = () => onCancel();
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -89,7 +69,12 @@ function DeliveryDetailsForm() {
           onChange={handleChange}
         />
       </div>
+      <Spacer height={"1rem"} />
       <div>
+        <FilledButtonSecondary type="button" onClick={handleCancel}>
+          Go Back to cart
+        </FilledButtonSecondary>
+        <Spacer width={"1rem"} />
         <FilledButton type="submit">Place Order</FilledButton>
       </div>
     </StyledForm>
