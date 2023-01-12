@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeReducer from "./home/homeSlice";
 import productsReducer from "./product-list/productsListSlice";
 import productDetailReducer from "./product-detail/productDetailSlice";
 import searchReducer from "./search/searchSlice";
@@ -17,7 +16,6 @@ import {
 export default configureStore({
   reducer: {
     app: appReducer,
-    home: homeReducer,
     productsList: productsReducer,
     productDetail: productDetailReducer,
     search: searchReducer,

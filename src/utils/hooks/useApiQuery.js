@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useApiQuery(query, { params = {} } = {}) {
+export function useApiQuery(query, { params } = {}) {
   const [dataWrapper, setDataWrapper] = useState({
     isLoading: true,
     data: {},
@@ -15,7 +15,7 @@ export function useApiQuery(query, { params = {} } = {}) {
         const data = await query({ ...config, params });
         setDataWrapper({ isLoading: false, data, error: null });
       } catch (err) {
-        setDataWrapper({ isLoading: false, data: {}, error: err });
+        setDataWrapper({ isLoading: false, data: {}, error: err.toString });
         console.error(err);
       }
     }
@@ -24,6 +24,6 @@ export function useApiQuery(query, { params = {} } = {}) {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [query, params]);
   return dataWrapper;
 }

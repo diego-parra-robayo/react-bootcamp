@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Link } from "@mui/icons-material";
 import Center from "../../components/Center/Center";
 import ProductList from "../../components/ProductList/ProductList";
 import Spacer from "../../components/Spacer/Spacer";
-import { selectHomeProducts } from "../../redux/home/homeSelectors";
 import routes from "../../utils/routes";
+import { useApiQuery } from "../../utils/hooks/useApiQuery";
+import { getFeaturedProducts } from "../../data/productsApi";
 
 const StyledLink = styled(Link)`
   &:link {
@@ -14,7 +14,14 @@ const StyledLink = styled(Link)`
 `;
 
 function ProductsSection() {
-  const products = useSelector(selectHomeProducts);
+  const {
+    isLoading,
+    data: { results: products },
+    error,
+  } = useApiQuery(getFeaturedProducts);
+
+  if (isLoading) return <span>Loading products...</span>;
+  if (error) return <span>Error loading products: {error}</span>;
   return (
     <>
       <ProductList title="Products for you" products={products} />
