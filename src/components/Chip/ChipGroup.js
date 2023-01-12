@@ -13,6 +13,7 @@ export function ChipGroup({ data = [], onItemSelected }) {
     <ChipGroupContainer>
       {data.map((itemData) => (
         <Chip
+          data-testid={`chip-item-${itemData.id}}`}
           key={itemData.id}
           selected={itemData.selected ?? false}
           onClick={() => (onItemSelected ? onItemSelected(itemData) : null)}

@@ -26,7 +26,7 @@ function ProductListItem({
   onAddToCartButtonClick,
 }) {
   return (
-    <Card>
+    <Card data-testid={`prod-item-${id}`}>
       <img src={imageUrl} alt={imageAlt} onClick={() => onImageClick(id)} />
       <h3>{title}</h3>
       <h5>{price}</h5>
