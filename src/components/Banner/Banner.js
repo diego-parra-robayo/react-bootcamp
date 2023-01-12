@@ -21,11 +21,16 @@ function Banner({ data = [], interval = 4000, aspectRatio }) {
   return (
     <section>
       <BannerContainer interval={interval} aspectRatio={aspectRatio}>
-        <BannerControlPrev title="Back" onClick={setPrevious}>
+        <BannerControlPrev title="banner-back" onClick={setPrevious}>
           <ArrowBackIos />
         </BannerControlPrev>
-        <BannerImage key={banner.id} src={banner.src} alt={banner.alt} />
-        <BannerControlNext title="Next" onClick={setNext}>
+        <BannerImage
+          title="banner-img"
+          key={banner.id}
+          src={banner.src}
+          alt={banner.alt}
+        />
+        <BannerControlNext title="banner-next" onClick={setNext}>
           <ArrowForwardIos />
         </BannerControlNext>
       </BannerContainer>

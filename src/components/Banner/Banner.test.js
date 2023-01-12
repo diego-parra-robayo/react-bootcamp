@@ -54,15 +54,15 @@ describe("Banner", () => {
 describe("Banner controls", () => {
   test("Controls are displayed", () => {
     render(<Banner data={data} />);
-    const arrowBack = screen.getByTitle("Back");
+    const arrowBack = screen.getByTitle(/back/i);
     expect(arrowBack).toBeInTheDocument();
-    const arrowNext = screen.getByTitle("Next");
+    const arrowNext = screen.getByTitle(/next/i);
     expect(arrowNext).toBeInTheDocument();
   });
   test("Previous image is shown when clicking on prev arrow", async () => {
     render(<Banner data={data} />);
 
-    const arrowBack = screen.getByTitle("Back");
+    const arrowBack = screen.getByTitle(/back/i);
     fireEvent.click(arrowBack);
 
     const image = await screen.findByRole("img");
@@ -71,7 +71,7 @@ describe("Banner controls", () => {
   test("Next image is shown when clicking on next arrow", async () => {
     render(<Banner data={data} />);
 
-    const arrowNext = screen.getByTitle("Next");
+    const arrowNext = screen.getByTitle(/next/i);
     fireEvent.click(arrowNext);
 
     const image = await screen.findByRole("img");

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import ProductList from "./ProductList";
-import mockedProducts from "../../mocks/en-us/featured-products.json";
+import mockedProducts from "../../__fakes__/en-us/featured-products.json";
 
 const products = mockedProducts.results;
 

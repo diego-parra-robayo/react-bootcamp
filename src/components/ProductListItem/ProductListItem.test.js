@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import ProductListItem from "./ProductListItem";
-import mockedProducts from "../../mocks/en-us/featured-products.json";
+import mockedProducts from "../../__fakes__/en-us/featured-products.json";
 
 const handleImageClick = jest.fn();
 const product = mockedProducts.results[0];
