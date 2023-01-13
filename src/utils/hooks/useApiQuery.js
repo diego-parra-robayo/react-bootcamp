@@ -15,7 +15,7 @@ export function useApiQuery(query, { params } = {}) {
         const data = await query({ ...config, params });
         setDataWrapper({ isLoading: false, data, error: null });
       } catch (err) {
-        setDataWrapper({ isLoading: false, data: {}, error: err.toString });
+        setDataWrapper({ isLoading: false, data: {}, error: err.toString() });
         console.error(err);
       }
     }
