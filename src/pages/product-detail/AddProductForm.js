@@ -51,6 +51,7 @@ function AddProductForm() {
     <StyledForm onSubmit={onSubmit}>
       <label htmlFor="qty">Items: </label>
       <input
+        id="qty"
         name="qty"
         type="number"
         value={quantity}

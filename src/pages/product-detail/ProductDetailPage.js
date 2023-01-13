@@ -55,11 +55,13 @@ function Gallery({ images }) {
 }
 
 function Title({ name, price }) {
-  <TitleContainer>
-    <h1>{name}</h1>
-    <h3>$ {price}</h3>
-    <hr />
-  </TitleContainer>;
+  return (
+    <TitleContainer>
+      <h1>{name}</h1>
+      <h3>$ {price}</h3>
+      <hr />
+    </TitleContainer>
+  );
 }
 
 function Codes({ sku, categorySlug }) {
