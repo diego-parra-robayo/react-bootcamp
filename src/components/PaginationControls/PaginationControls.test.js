@@ -29,7 +29,7 @@ describe("PaginationControls", () => {
   });
 
   describe("ArrowNext", () => {
-    const arrowNextTitle = "Next";
+    const arrowNextTitle = /next page/i;
     test("arrow controls are visible", () => {
       render(
         <PaginationControls page={1} totalPages={5} onPageClick={handleClick} />
@@ -56,7 +56,7 @@ describe("PaginationControls", () => {
   });
 
   describe("ArrowBack", () => {
-    const arrowBackTitle = "Previous";
+    const arrowBackTitle = /previous page/i;
     test("arrowBack is visible", () => {
       render(
         <PaginationControls page={1} totalPages={5} onPageClick={handleClick} />

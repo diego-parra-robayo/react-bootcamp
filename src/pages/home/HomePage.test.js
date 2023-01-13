@@ -24,9 +24,7 @@ describe("HomePage", () => {
     test("Categories Carousel is fetching and rendering data from the API", async () => {
       MockAxios.get.mockResolvedValue({ data: mockProductCategories });
       renderNav(<CategoriesSection />);
-      const categoriesElements = await screen.findAllByTestId(
-        /chip-item[\S]*/i
-      );
+      const categoriesElements = await screen.findAllByTestId(/chip-item/i);
       expect(categoriesElements).not.toHaveLength(0);
       expect(categoriesElements[0]).toHaveTextContent(
         mockProductCategories.results[0].data.name
@@ -37,7 +35,7 @@ describe("HomePage", () => {
     test("Featured products grid is rendering and fetching data from the API", async () => {
       MockAxios.get.mockResolvedValue({ data: mockFeaturedProducts });
       renderNav(<ProductsSection />);
-      const productElements = await screen.findAllByTestId(/prod-item[\S]*/);
+      const productElements = await screen.findAllByTestId(/prod-item/i);
       expect(productElements).not.toHaveLength(0);
       expect(productElements[0]).toContainHTML("img");
       expect(productElements[0]).toHaveTextContent(

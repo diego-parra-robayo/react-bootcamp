@@ -20,7 +20,7 @@ export const renderNav = (ui, options) =>
 
 export const renderReduxAndNav = (ui, options) =>
   render(ui, {
-    wrapper: (children) => (
+    wrapper: ({ children }) => (
       <MockReduxProvider>
         <MockNav>{children}</MockNav>
       </MockReduxProvider>

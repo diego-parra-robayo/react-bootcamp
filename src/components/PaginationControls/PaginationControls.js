@@ -34,7 +34,7 @@ function PaginationControls({ page, totalPages, onPageClick }) {
   return (
     <PaginationControlsContainer>
       <PaginationControl
-        title="Previous"
+        title="Go to previous page"
         disabled={page === 1}
         onClick={() => safeOnPageClick(page - 1)}
       >
@@ -42,6 +42,7 @@ function PaginationControls({ page, totalPages, onPageClick }) {
       </PaginationControl>
       {range(1, totalPages).map((pageNumber) => (
         <PageNumberButton
+          title={`Go to page ${pageNumber}`}
           key={pageNumber}
           selected={pageNumber === page}
           onClick={() => safeOnPageClick(pageNumber)}
@@ -50,7 +51,7 @@ function PaginationControls({ page, totalPages, onPageClick }) {
         </PageNumberButton>
       ))}
       <PaginationControl
-        title="Next"
+        title="Go to next page"
         disabled={page === totalPages}
         onClick={() => safeOnPageClick(page + 1)}
       >
