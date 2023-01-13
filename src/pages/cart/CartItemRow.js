@@ -13,9 +13,12 @@ import {
 function CartItemRow({ item: { product, quantity } }) {
   const dispatch = useDispatch();
   return (
-    <StyledRow>
+    <StyledRow data-testid={`cart-item-row-${product.id}`}>
       <td>
-        <IconButton onClick={() => dispatch(deleteProductFromCart(product))}>
+        <IconButton
+          title="remove from cart"
+          onClick={() => dispatch(deleteProductFromCart(product))}
+        >
           <Delete sx={{ color: colors.red }} />
         </IconButton>
       </td>

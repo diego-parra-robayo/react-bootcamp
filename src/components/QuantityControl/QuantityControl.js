@@ -23,12 +23,12 @@ function QuantityControl({
 }) {
   return (
     <QuantityContainer>
-      <IconButton title="Remove" onClick={onRemovePressed}>
+      <IconButton title="Remove quantity" onClick={onRemovePressed}>
         {quantity === 1 ? <Delete /> : <Remove />}
       </IconButton>
-      <QuantitySpan>{quantity}</QuantitySpan>
+      <QuantitySpan title="Quantity label">{quantity}</QuantitySpan>
       <IconButton
-        title="Add"
+        title="Add quantity"
         onClick={onAddPressed}
         disabled={maxStock ? quantity >= maxStock : false}
       >

@@ -27,7 +27,7 @@ function CartTableFooter() {
           <h3>Subtotal</h3>
         </td>
         <td>
-          <h3>$ {cartTotal}</h3>
+          <h3 data-testid="cart-total">$ {cartTotal}</h3>
         </td>
       </tr>
       <tr>

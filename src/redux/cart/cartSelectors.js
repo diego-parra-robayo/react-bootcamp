@@ -12,10 +12,11 @@ export const selectCartQuantity = createSelector(
   (items) => items.length
 );
 
-export const selectCartTotal = createSelector([selectCartItems], (items) =>
-  items.reduce(
+export const selectCartTotal = createSelector([selectCartItems], (items) => {
+  const total = items.reduce(
     (accumulator, item) =>
       accumulator + item.product.data.price * item.quantity,
     0
-  )
-);
+  );
+  return Math.round(total * 100) / 100;
+});
