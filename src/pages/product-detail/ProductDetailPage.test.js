@@ -5,16 +5,13 @@ import ProductDetailPage from "./ProductDetailPage";
 import mockProduct from "../../__fakes__/en-us/product.json";
 import MockAxios from "axios";
 import store from "../../redux/store";
-import {
-  selectCartItems,
-  selectCartQuantity,
-} from "../../redux/cart/cartSelectors";
+import { selectCartQuantity } from "../../redux/cart/cartSelectors";
 
 const productId = "YZZ_XhIAAC0AvmiA";
 const MockProductDetailPage = () => (
   <MemoryRouter initialEntries={[`/product/${productId}`]}>
     <Routes>
-      <Route path={"/product/:id"} element={<ProductDetailPage />} />
+      <Route path="/product/:id" element={<ProductDetailPage />} />
     </Routes>
   </MemoryRouter>
 );
